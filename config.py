@@ -1,6 +1,7 @@
 #Variáveis
 targetURL = 'https://www.nike.com.br/Snkrs/Produto/Zoom-Freak-2/153-169-211-305438'
 size = 36
+startTime = "17:28"
 
 # Constantes
 buyButtonID = "btn-comprar"

@@ -1,16 +1,12 @@
 import asyncio
 import time
+import datetime
 from selenium import webdriver
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 from selenium.webdriver.common.keys import Keys
 from config import *
 from credentials import *
-
-binary = FirefoxBinary('/usr/lib/firefox/firefox')
-caps = DesiredCapabilities().FIREFOX
-caps["pageLoadStrategy"] = "eager"
-driver = webdriver.Firefox(capabilities=caps, firefox_binary=binary)
 
 def run():
     initialTime = time.time()
@@ -154,6 +150,18 @@ def run():
         print("Tempo decorrido: "+str(finalTime - initialTime)+"s")
         return True
 
+dropped = False
 while(True):
-    if run():
-        break
+    now = datetime.datetime.now()
+    now = str(now.hour)+":"+str(now.minute)
+    if startTime == now:
+        dropped = True
+        binary = FirefoxBinary('/usr/lib/firefox/firefox')
+        caps = DesiredCapabilities().FIREFOX
+        caps["pageLoadStrategy"] = "eager"
+        driver = webdriver.Firefox(capabilities=caps, firefox_binary=binary)
+    else:
+        time.sleep(1)
+    if dropped:
+        if run():
+            break
