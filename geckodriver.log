@@ -2830,3 +2830,55 @@ TimedPromise@chrome://marionette/content/sync.js:220:10
 interaction.flushEventLoop@chrome://marionette/content/interaction.js:418:10
 webdriverClickElement@chrome://marionette/content/interaction.js:179:31
 1611344922036	Marionette	INFO	Stopped listening on port 34365
+1611345800906	geckodriver	INFO	Listening on 127.0.0.1:33273
+1611345800909	mozrunner::runner	INFO	Running command: "/usr/lib/firefox/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileiwNbqK"
+
+(firefox:595891): Gtk-WARNING **: 17:03:20.946: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+
+(/usr/lib/firefox/firefox:595982): Gtk-WARNING **: 17:03:21.474: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+
+(/usr/lib/firefox/firefox:596005): Gtk-WARNING **: 17:03:21.540: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1611345802110	Marionette	INFO	Listening on port 37507
+1611345802123	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(/usr/lib/firefox/firefox:596089): Gtk-WARNING **: 17:03:22.446: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+JavaScript error: https://www.nike.com.br/Snkrs/Produto/Zoom-Freak-2/153-169-211-305438, line 2: TypeError: (intermediate value)() is not a function
+JavaScript error: https://unite.nike.com.br/s3/unite/app/861/scripts/app.min.js, line 1: Error: The placeholder for login is missing. (nike-unite-login-view)
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+JavaScript error: https://www.nike.com/assets/measure/data-capture/analytics-client.min.js, line 8: TypeError: this.findField is not a function
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.nike.com.br/Snkrs/Produto/Zoom-Freak-2/153-169-211-305438, line 2: TypeError: (intermediate value)() is not a function
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+JavaScript error: https://unite.nike.com.br/s3/unite/app/861/scripts/app.min.js, line 1: Error: The placeholder for login is missing. (nike-unite-login-view)
+JavaScript error: https://www.nike.com/assets/measure/data-capture/analytics-client.min.js, line 8: TypeError: this.findField is not a function
+JavaScript error: https://www.nike.com.br/Snkrs/Produto/Zoom-Freak-2/153-169-211-305438, line 2: TypeError: (intermediate value)() is not a function
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+JavaScript error: https://unite.nike.com.br/s3/unite/app/861/scripts/app.min.js, line 1: Error: The placeholder for login is missing. (nike-unite-login-view)
+JavaScript error: https://www.nike.com/assets/measure/data-capture/analytics-client.min.js, line 8: TypeError: this.findField is not a function
+JavaScript error: https://www.nike.com.br/Snkrs/Produto/Zoom-Freak-2/153-169-211-305438, line 2: TypeError: (intermediate value)() is not a function
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+JavaScript error: https://unite.nike.com.br/s3/unite/app/861/scripts/app.min.js, line 1: Error: The placeholder for login is missing. (nike-unite-login-view)
+JavaScript error: https://www.nike.com/assets/measure/data-capture/analytics-client.min.js, line 8: TypeError: this.findField is not a function
+JavaScript error: https://www.nike.com.br/Snkrs/Produto/Zoom-Freak-2/153-169-211-305438, line 2: TypeError: (intermediate value)() is not a function
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+JavaScript error: https://unite.nike.com.br/s3/unite/app/861/scripts/app.min.js, line 1: Error: The placeholder for login is missing. (nike-unite-login-view)
+JavaScript error: https://www.nike.com/assets/measure/data-capture/analytics-client.min.js, line 8: TypeError: this.findField is not a function
+JavaScript error: https://www.nike.com.br/Snkrs/Produto/Zoom-Freak-2/153-169-211-305438, line 2: TypeError: (intermediate value)() is not a function
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+JavaScript error: https://unite.nike.com.br/s3/unite/app/861/scripts/app.min.js, line 1: Error: The placeholder for login is missing. (nike-unite-login-view)
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+1611345823491	Marionette	INFO	Stopped listening on port 37507

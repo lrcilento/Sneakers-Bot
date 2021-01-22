@@ -1,7 +1,5 @@
-# Variáveis
-targetURL = 'https://www.nike.com.br/Snkrs/Produto/LeBron-18-Infantil-34-38/67-80-445-274274'
-email = "lucascilento@hotmail.com"
-password = "senhaTeste1234"
+#Variáveis
+targetURL = 'https://www.nike.com.br/Snkrs/Produto/Zoom-Freak-2/153-169-211-305438'
 size = 36
 
 # Constantes
@@ -17,3 +15,4 @@ cardClassName = "select-cta-option"
 termsCheckboxXPath = "/html/body/main/div/div[3]/div[8]/div[2]/div[3]/div/input"
 termsDivXPath = "/html/body/main/div/div[3]/div[8]/div[2]/div[3]/div"
 finalButtonID = "confirmar-pagamento"
+remindMeButtonID = "btn-avisar"
