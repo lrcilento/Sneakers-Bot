@@ -224,6 +224,7 @@ while(True):
             caps = DesiredCapabilities().FIREFOX
             caps["pageLoadStrategy"] = "eager"
             driver = webdriver.Firefox(capabilities=caps, firefox_binary=binary)
+            driver.maximize_window()
         else:
             time.sleep(1)
             if lastMinute != nowMinute:

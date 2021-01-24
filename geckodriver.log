@@ -3451,3 +3451,19 @@ TimedPromise@chrome://marionette/content/sync.js:220:10
 interaction.flushEventLoop@chrome://marionette/content/interaction.js:418:10
 webdriverClickElement@chrome://marionette/content/interaction.js:179:31
 1611515276796	Marionette	INFO	Stopped listening on port 45029
+1611522752229	geckodriver	INFO	Listening on 127.0.0.1:32895
+1611522753235	mozrunner::runner	INFO	Running command: "/usr/lib/firefox/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileAfhJlA"
+
+(firefox:16442): Gtk-WARNING **: 18:12:33.259: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+
+(/usr/lib/firefox/firefox:16533): Gtk-WARNING **: 18:12:33.776: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+
+(/usr/lib/firefox/firefox:16553): Gtk-WARNING **: 18:12:33.826: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1611522754421	Marionette	INFO	Listening on port 45491
+1611522754449	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(/usr/lib/firefox/firefox:16639): Gtk-WARNING **: 18:12:34.742: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+JavaScript error: https://www.nike.com.br/Snkrs/Produto/LeBron-18/153-169-211-280003, line 2: TypeError: (intermediate value)() is not a function
+Exiting due to channel error.
+Exiting due to channel error.
