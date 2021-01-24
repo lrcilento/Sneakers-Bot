@@ -1,6 +1,7 @@
 import asyncio
 import time
 import datetime
+import sys
 from selenium import webdriver
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
@@ -14,10 +15,10 @@ def run():
 
     print("Carregando página...")
     driver.get(targetURL)
-    print("Página carregada, tentando logar...")
+    print("Página carregada.")
 
     while(True):
-        print("Checando já está disponível...")
+        print("Verificando se já está disponível...")
         try:
             driver.find_element_by_xpath(sizeXPaths[0])
             print("Está!")
@@ -31,6 +32,10 @@ def run():
                 time.sleep(2)
                 break
             except:
+                print("Não achei o botão de aviso também, aguardando...")
+                driver.find_element_by_tag_name('body').send_keys(Keys.HOME)
+                time.sleep(0.1)
+                driver.find_element_by_tag_name('body').send_keys(Keys.PAGE_DOWN)
                 time.sleep(0.5)
             time.sleep(0.5)
 
@@ -71,18 +76,35 @@ def run():
                 break
             except:
                 time.sleep(0.5)
+                driver.find_element_by_tag_name('body').send_keys(Keys.HOME)
+                time.sleep(0.1)
+                driver.find_element_by_tag_name('body').send_keys(Keys.PAGE_DOWN)
         
-        for size in range(0, len(sizeXPaths)):
+        for x in range(0, len(sizeXPaths)):
             try:
-                driver.find_element_by_xpath(sizeXPaths[size]).click()
-                print("Número "+sizeXPaths[size]+" disponível, selecionando-o...")
+                if driver.find_element_by_xpath(sizeXPaths[x]).find_element_by_xpath('..').get_attribute('class') != "tamanho-desabilitado":
+                    print("Número "+sizeXPaths[x][-4:-2]+" disponível, selecionando-o...")
+                    avaliableSize = sizeXPaths[x]
+                    break
+                else:
+                    print("Número "+sizeXPaths[x][-4:-2]+" indisponível...")
+            except:
+                time.sleep(0.1)
+
+        while(True):
+            try:
+                driver.find_element_by_xpath(avaliableSize).click()
+                print("Adicionando ao carrinho...")
+                driver.find_element_by_id(buyButtonID).click()
                 break
             except:
                 time.sleep(0.5)
-        
-        print("Adicionando ao carrinho...")
-        driver.find_element_by_id(buyButtonID).click()
-
+                try:
+                    driver.find_element_by_tag_name('body').send_keys(Keys.HOME)
+                    time.sleep(0.1)
+                    driver.find_element_by_tag_name('body').send_keys(Keys.PAGE_DOWN)
+                except:
+                    time.sleep(0.5)
 
         while(True):
             print("Procurando botão de check-out...")
@@ -105,6 +127,13 @@ def run():
             try:
                 driver.find_element_by_xpath(confirmAddressXPath)
                 print("Abriu!")
+                break
+            except:
+                time.sleep(0.5)
+            print("Procurando botão de confirmação de endereço, quem sabe...")
+            try:
+                driver.find_element_by_xpath(confirmAddressXPath)
+                print("Achei!")
                 break
             except:
                 time.sleep(0.5)
@@ -157,31 +186,48 @@ def run():
                     time.sleep(0.5)
                 time.sleep(0.5)
 
-        while(True):
-            print("Tentando finalizar compra...")
-            try:
-                driver.find_element_by_id(finalButtonID).click()
-                print("Consegui!")
-                break
-            except:
-                time.sleep(0.5)
+        if test == False:
+            while(True):
+                print("Tentando finalizar compra...")
+                try:
+                    driver.find_element_by_id(finalButtonID).click()
+                    print("Consegui!")
+                    break
+                except:
+                    time.sleep(0.5)
 
         finalTime = time.time()
         print("Tempo decorrido: "+str(finalTime - initialTime)+"s")
         return True
 
 dropped = False
+test = False
+print("Horário do drop: "+startTime)
+startHour = startTime[:2]
+startMinute = startTime[-2:]
+lastMinute = None
 while(True):
-    now = datetime.datetime.now()
-    now = str(now.hour)+":"+str(now.minute)
-    if startTime == now and dropped == False:
-        dropped = True
+    if test:
+        print("Modo teste ativado, ignorando horário...")
         binary = FirefoxBinary('/usr/lib/firefox/firefox')
         caps = DesiredCapabilities().FIREFOX
         caps["pageLoadStrategy"] = "eager"
         driver = webdriver.Firefox(capabilities=caps, firefox_binary=binary)
     else:
-        time.sleep(1)
+        nowHour = datetime.datetime.now().hour
+        nowMinute = datetime.datetime.now().minute
+        now = str(nowHour)+":"+str(nowMinute)
+        if startTime == now and dropped == False:
+            dropped = True
+            binary = FirefoxBinary('/usr/lib/firefox/firefox')
+            caps = DesiredCapabilities().FIREFOX
+            caps["pageLoadStrategy"] = "eager"
+            driver = webdriver.Firefox(capabilities=caps, firefox_binary=binary)
+        else:
+            time.sleep(1)
+            if lastMinute != nowMinute:
+                lastMinute = nowMinute
+                print(str(((int(startHour)*60)+int(startMinute))-((int(nowHour)*60)+int(nowMinute)))+" minutos restantes...")
     if dropped:
         if run():
             break

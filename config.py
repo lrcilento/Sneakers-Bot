@@ -1,7 +1,7 @@
 #Variáveis
-targetURL = 'https://www.nike.com.br/Snkrs/Produto/Zoom-Freak-2/153-169-211-305438'
-sizes = [36, 38, 375]
-startTime = "14:23"
+targetURL = 'https://www.nike.com.br/Snkrs/Produto/LeBron-18/153-169-211-280003'
+sizes = [36, 37, 38]
+startTime = "16:00"
 
 # Constantes
 buyButtonID = "btn-comprar"

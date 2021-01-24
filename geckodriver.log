@@ -3095,3 +3095,323 @@ JavaScript error: https://www.nike.com/assets/measure/data-capture/analytics-cli
 Exiting due to channel error.
 Exiting due to channel error.
 Exiting due to channel error.
+1611509488816	geckodriver	INFO	Listening on 127.0.0.1:60591
+1611509488819	mozrunner::runner	INFO	Running command: "/usr/lib/firefox/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileqBXZtT"
+
+(firefox:83994): Gtk-WARNING **: 14:31:28.858: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+
+(/usr/lib/firefox/firefox:84091): Gtk-WARNING **: 14:31:29.352: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+
+(/usr/lib/firefox/firefox:84114): Gtk-WARNING **: 14:31:29.413: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1611509489969	Marionette	INFO	Listening on port 41341
+1611509490033	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(/usr/lib/firefox/firefox:84195): Gtk-WARNING **: 14:31:30.341: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+JavaScript error: https://www.nike.com.br/Snkrs/Produto/LeBron-18/153-169-211-280003, line 2: TypeError: (intermediate value)() is not a function
+JavaScript error: https://unite.nike.com.br/s3/unite/app/862/scripts/app.min.js, line 1: Error: The placeholder for login is missing. (nike-unite-login-view)
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1611509633535	geckodriver	INFO	Listening on 127.0.0.1:37449
+1611509633537	mozrunner::runner	INFO	Running command: "/usr/lib/firefox/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileZnColw"
+
+(firefox:84594): Gtk-WARNING **: 14:33:53.579: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+
+(/usr/lib/firefox/firefox:84699): Gtk-WARNING **: 14:33:54.060: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+
+(/usr/lib/firefox/firefox:84722): Gtk-WARNING **: 14:33:54.119: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1611509634523	Marionette	INFO	Listening on port 36863
+1611509634550	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(/usr/lib/firefox/firefox:84804): Gtk-WARNING **: 14:33:55.045: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+JavaScript error: https://www.nike.com.br/Snkrs/Produto/LeBron-18/153-169-211-280003, line 2: TypeError: (intermediate value)() is not a function
+JavaScript error: https://unite.nike.com.br/s3/unite/app/862/scripts/app.min.js, line 1: Error: The placeholder for login is missing. (nike-unite-login-view)
+JavaScript error: https://www.nike.com/assets/measure/data-capture/analytics-client.min.js, line 8: TypeError: this.findField is not a function
+JavaScript error: https://www.nike.com.br/Snkrs/Produto/LeBron-18/153-169-211-280003#, line 2: TypeError: (intermediate value)() is not a function
+JavaScript error: https://unite.nike.com.br/s3/unite/app/862/scripts/app.min.js, line 1: Error: The placeholder for login is missing. (nike-unite-login-view)
+JavaScript error: https://www.nike.com/assets/measure/data-capture/analytics-client.min.js, line 8: TypeError: this.findField is not a function
+1611509702398	Marionette	INFO	Stopped listening on port 36863
+1611510086457	geckodriver	INFO	Listening on 127.0.0.1:45105
+1611510086459	mozrunner::runner	INFO	Running command: "/usr/lib/firefox/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileeJSwHc"
+
+(firefox:85671): Gtk-WARNING **: 14:41:26.493: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+
+(/usr/lib/firefox/firefox:85772): Gtk-WARNING **: 14:41:27.004: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+
+(/usr/lib/firefox/firefox:85795): Gtk-WARNING **: 14:41:27.063: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1611510087624	Marionette	INFO	Listening on port 40405
+1611510087672	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(/usr/lib/firefox/firefox:85880): Gtk-WARNING **: 14:41:27.972: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+JavaScript error: https://www.nike.com.br/Snkrs/Produto/LeBron-18/153-169-211-280003, line 2: TypeError: (intermediate value)() is not a function
+JavaScript error: https://unite.nike.com.br/s3/unite/app/862/scripts/app.min.js, line 1: Error: The placeholder for login is missing. (nike-unite-login-view)
+JavaScript error: https://www.nike.com/assets/measure/data-capture/analytics-client.min.js, line 8: TypeError: this.findField is not a function
+JavaScript error: https://www.nike.com.br/Snkrs/Produto/LeBron-18/153-169-211-280003#, line 2: TypeError: (intermediate value)() is not a function
+JavaScript error: https://unite.nike.com.br/s3/unite/app/862/scripts/app.min.js, line 1: Error: The placeholder for login is missing. (nike-unite-login-view)
+JavaScript error: https://www.nike.com/assets/measure/data-capture/analytics-client.min.js, line 8: TypeError: this.findField is not a function
+1611510243649	Marionette	INFO	Stopped listening on port 40405
+1611510432224	geckodriver	INFO	Listening on 127.0.0.1:43239
+1611510432227	mozrunner::runner	INFO	Running command: "/usr/lib/firefox/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile8z4317"
+
+(firefox:86436): Gtk-WARNING **: 14:47:12.266: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+
+(/usr/lib/firefox/firefox:86546): Gtk-WARNING **: 14:47:12.748: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+
+(/usr/lib/firefox/firefox:86569): Gtk-WARNING **: 14:47:12.809: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1611510433273	Marionette	INFO	Listening on port 44903
+1611510433339	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(/usr/lib/firefox/firefox:86651): Gtk-WARNING **: 14:47:13.731: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+JavaScript error: https://www.nike.com.br/Snkrs/Produto/LeBron-18/153-169-211-280003, line 2: TypeError: (intermediate value)() is not a function
+JavaScript error: https://unite.nike.com.br/s3/unite/app/862/scripts/app.min.js, line 1: Error: The placeholder for login is missing. (nike-unite-login-view)
+JavaScript error: https://www.nike.com/assets/measure/data-capture/analytics-client.min.js, line 8: TypeError: this.findField is not a function
+JavaScript error: https://www.nike.com.br/Snkrs/Produto/LeBron-18/153-169-211-280003#, line 2: TypeError: (intermediate value)() is not a function
+JavaScript error: https://unite.nike.com.br/s3/unite/app/862/scripts/app.min.js, line 0: Error: The placeholder for login is missing. (nike-unite-login-view)
+JavaScript error: https://www.nike.com/assets/measure/data-capture/analytics-client.min.js, line 8: TypeError: this.findField is not a function
+1611510492174	Marionette	INFO	Stopped listening on port 44903
+1611510678367	geckodriver	INFO	Listening on 127.0.0.1:35193
+1611510678370	mozrunner::runner	INFO	Running command: "/usr/lib/firefox/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileBP6HlS"
+
+(firefox:87080): Gtk-WARNING **: 14:51:18.412: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+
+(/usr/lib/firefox/firefox:87181): Gtk-WARNING **: 14:51:18.916: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+
+(/usr/lib/firefox/firefox:87204): Gtk-WARNING **: 14:51:18.976: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1611510679614	Marionette	INFO	Listening on port 43303
+1611510679683	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(/usr/lib/firefox/firefox:87289): Gtk-WARNING **: 14:51:19.904: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+JavaScript error: https://www.nike.com.br/Snkrs/Produto/LeBron-18/153-169-211-280003, line 2: TypeError: (intermediate value)() is not a function
+JavaScript error: https://unite.nike.com.br/s3/unite/app/862/scripts/app.min.js, line 1: Error: The placeholder for login is missing. (nike-unite-login-view)
+JavaScript error: https://www.nike.com/assets/measure/data-capture/analytics-client.min.js, line 8: TypeError: this.findField is not a function
+JavaScript error: https://www.nike.com.br/Snkrs/Produto/LeBron-18/153-169-211-280003#, line 2: TypeError: (intermediate value)() is not a function
+JavaScript error: https://unite.nike.com.br/s3/unite/app/862/scripts/app.min.js, line 1: Error: The placeholder for login is missing. (nike-unite-login-view)
+JavaScript error: https://www.nike.com/assets/measure/data-capture/analytics-client.min.js, line 8: TypeError: this.findField is not a function
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1611510850054	geckodriver	INFO	Listening on 127.0.0.1:40713
+1611510850056	mozrunner::runner	INFO	Running command: "/usr/lib/firefox/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileihKbEM"
+
+(firefox:87638): Gtk-WARNING **: 14:54:10.092: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+
+(/usr/lib/firefox/firefox:87722): Gtk-WARNING **: 14:54:10.600: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+
+(/usr/lib/firefox/firefox:87745): Gtk-WARNING **: 14:54:10.660: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1611510851294	Marionette	INFO	Listening on port 43403
+1611510851369	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(/usr/lib/firefox/firefox:87832): Gtk-WARNING **: 14:54:11.575: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+JavaScript error: https://www.nike.com.br/Snkrs/Produto/LeBron-18/153-169-211-280003, line 2: TypeError: (intermediate value)() is not a function
+JavaScript error: https://unite.nike.com.br/s3/unite/app/862/scripts/app.min.js, line 1: Error: The placeholder for login is missing. (nike-unite-login-view)
+JavaScript error: https://www.nike.com/assets/measure/data-capture/analytics-client.min.js, line 8: TypeError: this.findField is not a function
+JavaScript error: https://www.nike.com.br/Snkrs/Produto/LeBron-18/153-169-211-280003#, line 2: TypeError: (intermediate value)() is not a function
+JavaScript error: https://unite.nike.com.br/s3/unite/app/862/scripts/app.min.js, line 1: Error: The placeholder for login is missing. (nike-unite-login-view)
+JavaScript error: https://www.nike.com/assets/measure/data-capture/analytics-client.min.js, line 8: TypeError: this.findField is not a function
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1611510952148	geckodriver	INFO	Listening on 127.0.0.1:43745
+1611510952150	mozrunner::runner	INFO	Running command: "/usr/lib/firefox/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileAHqGHI"
+
+(firefox:88178): Gtk-WARNING **: 14:55:52.179: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+
+(/usr/lib/firefox/firefox:88275): Gtk-WARNING **: 14:55:52.680: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+
+(/usr/lib/firefox/firefox:88295): Gtk-WARNING **: 14:55:52.740: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1611510953281	Marionette	INFO	Listening on port 41729
+1611510953363	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(/usr/lib/firefox/firefox:88382): Gtk-WARNING **: 14:55:53.661: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+JavaScript error: https://www.nike.com.br/Snkrs/Produto/LeBron-18/153-169-211-280003, line 2: TypeError: (intermediate value)() is not a function
+JavaScript error: https://unite.nike.com.br/s3/unite/app/862/scripts/app.min.js, line 1: Error: The placeholder for login is missing. (nike-unite-login-view)
+JavaScript error: https://www.nike.com/assets/measure/data-capture/analytics-client.min.js, line 8: TypeError: this.findField is not a function
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1611511497944	geckodriver	INFO	Listening on 127.0.0.1:42827
+1611511497947	mozrunner::runner	INFO	Running command: "/usr/lib/firefox/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileil9FgG"
+
+(firefox:89430): Gtk-WARNING **: 15:04:57.977: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+
+(/usr/lib/firefox/firefox:89525): Gtk-WARNING **: 15:04:58.491: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+
+(/usr/lib/firefox/firefox:89535): Gtk-WARNING **: 15:04:58.536: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1611511498997	Marionette	INFO	Listening on port 44297
+1611511499060	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(/usr/lib/firefox/firefox:89633): Gtk-WARNING **: 15:04:59.457: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+JavaScript error: https://www.nike.com.br/Snkrs/Produto/LeBron-18/153-169-211-280003, line 2: TypeError: (intermediate value)() is not a function
+JavaScript error: https://unite.nike.com.br/s3/unite/app/862/scripts/app.min.js, line 0: Error: The placeholder for login is missing. (nike-unite-login-view)
+JavaScript error: https://www.nike.com/assets/measure/data-capture/analytics-client.min.js, line 8: TypeError: this.findField is not a function
+JavaScript error: https://www.nike.com.br/Snkrs/Produto/LeBron-18/153-169-211-280003#, line 2: TypeError: (intermediate value)() is not a function
+JavaScript error: https://unite.nike.com.br/s3/unite/app/862/scripts/app.min.js, line 1: Error: The placeholder for login is missing. (nike-unite-login-view)
+JavaScript error: https://www.nike.com/assets/measure/data-capture/analytics-client.min.js, line 8: TypeError: this.findField is not a function
+1611511609244	geckodriver	INFO	Listening on 127.0.0.1:36647
+1611511609246	mozrunner::runner	INFO	Running command: "/usr/lib/firefox/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileVDAhY1"
+
+(firefox:89878): Gtk-WARNING **: 15:06:49.280: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+
+(/usr/lib/firefox/firefox:89968): Gtk-WARNING **: 15:06:49.807: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+
+(/usr/lib/firefox/firefox:89991): Gtk-WARNING **: 15:06:49.867: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1611511610432	Marionette	INFO	Listening on port 38151
+1611511610459	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(/usr/lib/firefox/firefox:90072): Gtk-WARNING **: 15:06:50.777: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+1611511613489	Marionette	INFO	Stopped listening on port 44297
+JavaScript error: https://www.nike.com.br/Snkrs/Produto/LeBron-18/153-169-211-280003, line 2: TypeError: (intermediate value)() is not a function
+JavaScript error: https://unite.nike.com.br/s3/unite/app/862/scripts/app.min.js, line 1: Error: The placeholder for login is missing. (nike-unite-login-view)
+JavaScript error: https://www.nike.com/assets/measure/data-capture/analytics-client.min.js, line 8: TypeError: this.findField is not a function
+JavaScript error: https://www.nike.com.br/Snkrs/Produto/LeBron-18/153-169-211-280003#, line 2: TypeError: (intermediate value)() is not a function
+JavaScript error: https://unite.nike.com.br/s3/unite/app/862/scripts/app.min.js, line 1: Error: The placeholder for login is missing. (nike-unite-login-view)
+JavaScript error: https://www.nike.com/assets/measure/data-capture/analytics-client.min.js, line 8: TypeError: this.findField is not a function
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1611511674669	geckodriver	INFO	Listening on 127.0.0.1:38191
+1611511674671	mozrunner::runner	INFO	Running command: "/usr/lib/firefox/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileybKEvn"
+
+(firefox:90263): Gtk-WARNING **: 15:07:54.713: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+
+(/usr/lib/firefox/firefox:90358): Gtk-WARNING **: 15:07:55.192: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+
+(/usr/lib/firefox/firefox:90381): Gtk-WARNING **: 15:07:55.252: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1611511675655	Marionette	INFO	Listening on port 34277
+1611511675684	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(/usr/lib/firefox/firefox:90469): Gtk-WARNING **: 15:07:56.178: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+JavaScript error: https://www.nike.com.br/Snkrs/Produto/LeBron-18/153-169-211-280003, line 2: TypeError: (intermediate value)() is not a function
+JavaScript error: https://unite.nike.com.br/s3/unite/app/862/scripts/app.min.js, line 1: Error: The placeholder for login is missing. (nike-unite-login-view)
+JavaScript error: https://www.nike.com/assets/measure/data-capture/analytics-client.min.js, line 8: TypeError: this.findField is not a function
+JavaScript error: https://www.nike.com.br/Snkrs/Produto/LeBron-18/153-169-211-280003#, line 2: TypeError: (intermediate value)() is not a function
+JavaScript error: https://unite.nike.com.br/s3/unite/app/862/scripts/app.min.js, line 1: Error: The placeholder for login is missing. (nike-unite-login-view)
+JavaScript error: https://www.nike.com/assets/measure/data-capture/analytics-client.min.js, line 8: TypeError: this.findField is not a function
+JavaScript error: https://www.nike.com.br/Carrinho, line 2: TypeError: (intermediate value)() is not a function
+JavaScript error: https://www.nike.com.br/Carrinho, line 2: SyntaxError: expected property name, got end of script
+JavaScript error: https://images.lojanike.com.br/site/ni/dist/js/Index.js?p=0&v=e9feb37520075f3a5f62ac87dc877908&a=PRODUCAO&nopack, line 1: SyntaxError: JSON.parse: unexpected character at line 1 column 110 of the JSON data
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1611511888843	geckodriver	INFO	Listening on 127.0.0.1:37149
+1611511888845	mozrunner::runner	INFO	Running command: "/usr/lib/firefox/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile9vMd0X"
+
+(firefox:90984): Gtk-WARNING **: 15:11:28.888: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+
+(/usr/lib/firefox/firefox:91073): Gtk-WARNING **: 15:11:29.409: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+
+(/usr/lib/firefox/firefox:91096): Gtk-WARNING **: 15:11:29.484: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1611511889912	Marionette	INFO	Listening on port 37683
+1611511889959	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(/usr/lib/firefox/firefox:91176): Gtk-WARNING **: 15:11:30.384: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+JavaScript error: https://www.nike.com.br/Snkrs/Produto/LeBron-18/153-169-211-280003, line 2: TypeError: (intermediate value)() is not a function
+JavaScript error: https://unite.nike.com.br/s3/unite/app/862/scripts/app.min.js, line 1: Error: The placeholder for login is missing. (nike-unite-login-view)
+JavaScript error: https://www.nike.com/assets/measure/data-capture/analytics-client.min.js, line 8: TypeError: this.findField is not a function
+JavaScript error: https://www.nike.com.br/Snkrs/Produto/LeBron-18/153-169-211-280003#, line 2: TypeError: (intermediate value)() is not a function
+JavaScript error: https://unite.nike.com.br/s3/unite/app/862/scripts/app.min.js, line 1: Error: The placeholder for login is missing. (nike-unite-login-view)
+1611511929253	Marionette	INFO	Stopped listening on port 37683
+1611511979215	geckodriver	INFO	Listening on 127.0.0.1:51299
+1611511979217	mozrunner::runner	INFO	Running command: "/usr/lib/firefox/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileFBS5hW"
+
+(firefox:91357): Gtk-WARNING **: 15:12:59.254: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+
+(/usr/lib/firefox/firefox:91471): Gtk-WARNING **: 15:12:59.757: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+
+(/usr/lib/firefox/firefox:91494): Gtk-WARNING **: 15:12:59.820: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1611511980379	Marionette	INFO	Listening on port 35875
+1611511980430	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(/usr/lib/firefox/firefox:91577): Gtk-WARNING **: 15:13:00.752: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+JavaScript error: https://www.nike.com.br/Snkrs/Produto/LeBron-18/153-169-211-280003, line 2: TypeError: (intermediate value)() is not a function
+JavaScript error: https://unite.nike.com.br/s3/unite/app/862/scripts/app.min.js, line 1: Error: The placeholder for login is missing. (nike-unite-login-view)
+JavaScript error: https://www.nike.com/assets/measure/data-capture/analytics-client.min.js, line 8: TypeError: this.findField is not a function
+JavaScript error: https://www.nike.com.br/Snkrs/Produto/LeBron-18/153-169-211-280003#, line 2: TypeError: (intermediate value)() is not a function
+JavaScript error: https://unite.nike.com.br/s3/unite/app/862/scripts/app.min.js, line 1: Error: The placeholder for login is missing. (nike-unite-login-view)
+JavaScript error: https://www.nike.com/assets/measure/data-capture/analytics-client.min.js, line 8: TypeError: this.findField is not a function
+JavaScript error: https://www.nike.com.br/Carrinho, line 2: TypeError: (intermediate value)() is not a function
+JavaScript error: https://www.nike.com.br/Carrinho, line 2: SyntaxError: expected property name, got end of script
+JavaScript error: https://images.lojanike.com.br/site/ni/dist/js/Index.js?p=0&v=e9feb37520075f3a5f62ac87dc877908&a=PRODUCAO&nopack, line 1: SyntaxError: JSON.parse: unexpected character at line 1 column 110 of the JSON data
+JavaScript error: https://www.nike.com.br/Checkout, line 2: TypeError: (intermediate value)() is not a function
+JavaScript error: https://www.nike.com.br/Checkout, line 2: SyntaxError: expected property name, got end of script
+1611512006691	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://marionette/content/sync.js:235:19
+TimedPromise@chrome://marionette/content/sync.js:220:10
+interaction.flushEventLoop@chrome://marionette/content/interaction.js:418:10
+webdriverClickElement@chrome://marionette/content/interaction.js:179:31
+JavaScript error: https://unite.nike.com.br/s3/unite/app/862/scripts/app.min.js, line 1: Error: The placeholder for login is missing. (nike-unite-login-view)
+1611512007901	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://marionette/content/sync.js:235:19
+TimedPromise@chrome://marionette/content/sync.js:220:10
+interaction.flushEventLoop@chrome://marionette/content/interaction.js:418:10
+webdriverClickElement@chrome://marionette/content/interaction.js:179:31
+JavaScript error: https://www.nike.com/assets/measure/data-capture/analytics-client.min.js, line 8: TypeError: this.findField is not a function
+1611512131227	Marionette	INFO	Stopped listening on port 35875
+1611512196634	geckodriver	INFO	Listening on 127.0.0.1:58805
+1611512196636	mozrunner::runner	INFO	Running command: "/usr/lib/firefox/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile6Y8aih"
+
+(firefox:92028): Gtk-WARNING **: 15:16:36.677: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+
+(/usr/lib/firefox/firefox:92131): Gtk-WARNING **: 15:16:37.174: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+
+(/usr/lib/firefox/firefox:92151): Gtk-WARNING **: 15:16:37.229: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1611512197836	Marionette	INFO	Listening on port 36711
+1611512197850	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(/usr/lib/firefox/firefox:92240): Gtk-WARNING **: 15:16:38.174: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+JavaScript error: https://www.nike.com.br/Snkrs/Produto/LeBron-18/153-169-211-280003, line 2: TypeError: (intermediate value)() is not a function
+JavaScript error: https://unite.nike.com.br/s3/unite/app/862/scripts/app.min.js, line 1: Error: The placeholder for login is missing. (nike-unite-login-view)
+JavaScript error: https://www.nike.com/assets/measure/data-capture/analytics-client.min.js, line 8: TypeError: this.findField is not a function
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.nike.com.br/Snkrs/Produto/LeBron-18/153-169-211-280003#, line 2: TypeError: (intermediate value)() is not a function
+JavaScript error: https://unite.nike.com.br/s3/unite/app/862/scripts/app.min.js, line 1: Error: The placeholder for login is missing. (nike-unite-login-view)
+JavaScript error: https://www.nike.com/assets/measure/data-capture/analytics-client.min.js, line 8: TypeError: this.findField is not a function
+JavaScript error: https://www.nike.com.br/Carrinho, line 2: TypeError: (intermediate value)() is not a function
+JavaScript error: https://www.nike.com.br/Carrinho, line 2: SyntaxError: expected property name, got end of script
+1611512217955	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript error: https://images.lojanike.com.br/site/ni/dist/js/Index.js?p=0&v=e9feb37520075f3a5f62ac87dc877908&a=PRODUCAO&nopack, line 1: SyntaxError: JSON.parse: unexpected character at line 1 column 110 of the JSON data
+JavaScript error: https://www.nike.com.br/Checkout, line 2: TypeError: (intermediate value)() is not a function
+JavaScript error: https://www.nike.com.br/Checkout, line 2: SyntaxError: expected property name, got end of script
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+JavaScript error: https://unite.nike.com.br/s3/unite/app/862/scripts/app.min.js, line 1: Error: The placeholder for login is missing. (nike-unite-login-view)
+JavaScript error: https://www.nike.com/assets/measure/data-capture/analytics-client.min.js, line 8: TypeError: this.findField is not a function
+1611512222208	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://marionette/content/sync.js:235:19
+TimedPromise@chrome://marionette/content/sync.js:220:10
+interaction.flushEventLoop@chrome://marionette/content/interaction.js:418:10
+webdriverClickElement@chrome://marionette/content/interaction.js:179:31
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+JavaScript error: https://www.nike.com.br/, line 2: TypeError: (intermediate value)() is not a function
+JavaScript error: https://www.nike.com.br/, line 2: SyntaxError: expected property name, got end of script
+JavaScript error: https://images.lojanike.com.br/hotsitevitrine/ni/0/1611236539/assets/js/scripts.js, line 165: TypeError: containerTarget is null
+JavaScript error: https://unite.nike.com.br/s3/unite/app/862/scripts/app.min.js, line 1: Error: The placeholder for login is missing. (nike-unite-login-view)
+JavaScript error: https://www.nike.com/assets/measure/data-capture/analytics-client.min.js, line 8: TypeError: this.findField is not a function
+1611512270866	Marionette	INFO	Stopped listening on port 36711
+1611512427922	geckodriver	INFO	Listening on 127.0.0.1:60351
+1611512427925	mozrunner::runner	INFO	Running command: "/usr/lib/firefox/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile9ZWFeT"
+
+(firefox:92746): Gtk-WARNING **: 15:20:27.966: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+
+(/usr/lib/firefox/firefox:92841): Gtk-WARNING **: 15:20:28.497: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+
+(/usr/lib/firefox/firefox:92864): Gtk-WARNING **: 15:20:28.558: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1611512429113	Marionette	INFO	Listening on port 34521
+1611512429137	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(/usr/lib/firefox/firefox:92951): Gtk-WARNING **: 15:20:29.494: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+JavaScript error: resource://activity-stream/lib/ASRouter.jsm, line 987: NS_ERROR_ILLEGAL_VALUE: Component returned failure code: 0x80070057 (NS_ERROR_ILLEGAL_VALUE) [nsIObserverService.removeObserver]
+1611512430083	Marionette	INFO	Stopped listening on port 34521
