@@ -17,52 +17,72 @@ def run():
     print("Página carregada, tentando logar...")
 
     while(True):
-        print("Procurando botão de login...")
+        print("Checando já está disponível...")
         try:
-            driver.find_element_by_id(loginElementID).click()
-            print("Achei!")
-            break
-        except:
-            time.sleep(0.5)
-
-    driver.switch_to_frame(loginFrameID)
-
-    while(True):
-        print("Procurando formulário de login...")
-        try:
-            driver.find_element_by_name('emailAddress').send_keys(email)
-            print("Email inserido!")
-            break
-        except:
-            time.sleep(0.5)
-
-    driver.find_element_by_name('password').send_keys(password)
-    print("Senha inserida!")
-    driver.find_element_by_name('password').send_keys(Keys.RETURN)
-    print("Submetendo formulário...")
-
-    driver.switch_to_default_content()
-
-    while(True):
-        print("Procurando tabela de números...")
-        try:
-            driver.find_element_by_xpath(sizeXPath).click()
-            print("Achei!")
+            driver.find_element_by_xpath(sizeXPaths[0])
+            print("Está!")
             break
         except:
             try:
-                print("Checando já está disponível...")
+                print("Não achei a tabela de números, procurando o botão de aviso...")
                 driver.find_element_by_id(remindMeButtonID)
-                print("Ainda não...")
+                print("Achei, não está disponível ainda...")
                 avaliable = False
                 time.sleep(2)
                 break
             except:
                 time.sleep(0.5)
             time.sleep(0.5)
+
     if avaliable:
+
+        while(True):
+            print("Procurando botão de login...")
+            try:
+                driver.find_element_by_id(loginElementID).click()
+                print("Achei!")
+                break
+            except:
+                time.sleep(0.5)
+
+        driver.switch_to_frame(loginFrameID)
+
+        while(True):
+            print("Procurando formulário de login...")
+            try:
+                driver.find_element_by_name('emailAddress').send_keys(email)
+                print("Email inserido!")
+                break
+            except:
+                time.sleep(0.5)
+
+        driver.find_element_by_name('password').send_keys(password)
+        print("Senha inserida!")
+        driver.find_element_by_name('password').send_keys(Keys.RETURN)
+        print("Submetendo formulário...")
+
+        driver.switch_to_default_content()
+
+        while(True):
+            print("Procurando tabela de números...")
+            try:
+                driver.find_element_by_xpath(sizeXPaths[0])
+                print("Achei!")
+                break
+            except:
+                time.sleep(0.5)
+        
+        for size in range(0, len(sizeXPaths)):
+            try:
+                driver.find_element_by_xpath(sizeXPaths[size]).click()
+                print("Número "+sizeXPaths[size]+" disponível, selecionando-o...")
+                break
+            except:
+                time.sleep(0.5)
+        
         print("Adicionando ao carrinho...")
         driver.find_element_by_id(buyButtonID).click()
+
 
         while(True):
             print("Procurando botão de check-out...")
@@ -154,7 +174,7 @@ dropped = False
 while(True):
     now = datetime.datetime.now()
     now = str(now.hour)+":"+str(now.minute)
-    if startTime == now:
+    if startTime == now and dropped == False:
         dropped = True
         binary = FirefoxBinary('/usr/lib/firefox/firefox')
         caps = DesiredCapabilities().FIREFOX
