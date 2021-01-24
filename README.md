@@ -2,7 +2,7 @@
 Scrapper bot para compra no site da Nike BR.
 
       Instalação:
-      sudo apt install git python3 pip
+      sudo apt install git python3 pip firefox
       git clone https://github.com/lrcilento/Sneakers-Bot.git
       pip install requirements.txt
       
