@@ -8,7 +8,7 @@ sizes = [36, 37, 38]
 startTime = "17:00"
 
 # NÃO MEXER DAQUI PARA BAIXO
-test = True
+test = False
 buyButtonID = "btn-comprar"
 checkoutButtonXPath = '/html/body/main/div[4]/div/div[4]/a'
 loginElementID = "anchor-acessar-unite-oauth2"
