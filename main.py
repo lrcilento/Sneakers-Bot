@@ -199,7 +199,10 @@ def run():
         print("Tempo decorrido: "+str(finalTime - initialTime)+"s")
         return True
 
-dropped = False
+if test:
+    dropped = True
+else:
+    dropped = False
 print("Horário do drop: "+startTime)
 startHour = startTime[:2]
 startMinute = startTime[-2:]
