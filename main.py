@@ -201,7 +201,6 @@ def run():
         return True
 
 dropped = False
-test = False
 print("Horário do drop: "+startTime)
 startHour = startTime[:2]
 startMinute = startTime[-2:]
