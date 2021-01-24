@@ -8,5 +8,6 @@ Scrapper bot para compra no site da Nike BR.
       
 
       Uso:
-      Preencha credentials.py e config.py com as informações necessárias.
+      Preencha config.py com as informações necessárias.
+      Crie um arquivo chamado credentials.py com as variáveis "email" e "password".
       python3 main.py
