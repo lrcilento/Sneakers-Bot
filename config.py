@@ -1,4 +1,4 @@
-#Variáveis
+# Variáveis
 targetURL = 'https://www.nike.com.br/Snkrs/Produto/LeBron-18/153-169-211-280003'
 sizes = [36, 37, 38]
 startTime = "16:00"
