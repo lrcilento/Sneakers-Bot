@@ -1,10 +1,14 @@
-# Variáveis
+# CONFIGURAÇÕES
+# URL do drop (utilizar a URL completa, com HTTPS://)
 targetURL = 'https://www.nike.com.br/Snkrs/Produto/LeBron-18/153-169-211-280003'
+# Lista de tamanhos que deseja comprar, ela segue uma ordem de prioridade da esquerda para direita
+# Números quebrados, como 37.5, devem ser escritos sem o ponto, e.g.: 375
 sizes = [36, 37, 38]
+# Horário exato do drop no formato "HH:MM"
 startTime = "16:00"
-test = False
 
-# Constantes
+# NÃO MEXER DAQUI PARA BAIXO
+test = False
 buyButtonID = "btn-comprar"
 checkoutButtonXPath = '/html/body/main/div[4]/div/div[4]/a'
 loginElementID = "anchor-acessar-unite-oauth2"
