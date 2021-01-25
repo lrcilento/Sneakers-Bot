@@ -5,7 +5,7 @@ targetURL = 'https://www.nike.com.br/Snkrs/Produto/LeBron-18/153-169-211-280003'
 # Números quebrados, como 37.5, devem ser escritos sem o ponto, e.g.: 375
 sizes = [36, 37, 38]
 # Horário exato do drop no formato "HH:MM"
-startTime = "16:02"
+startTime = "16:20"
 
 # NÃO MEXER DAQUI PARA BAIXO
 test = False

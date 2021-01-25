@@ -3501,3 +3501,46 @@ TimedPromise@chrome://marionette/content/sync.js:220:10
 interaction.flushEventLoop@chrome://marionette/content/interaction.js:418:10
 webdriverClickElement@chrome://marionette/content/interaction.js:179:31
 1611600352159	Marionette	INFO	Stopped listening on port 37305
+1611602322650	geckodriver	INFO	Listening on 127.0.0.1:42661
+1611602322651	mozrunner::runner	INFO	Running command: "/usr/lib/firefox/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilemwi8Bk"
+
+(firefox:83279): Gtk-WARNING **: 16:18:42.681: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+
+(/usr/lib/firefox/firefox:83379): Gtk-WARNING **: 16:18:43.183: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+
+(/usr/lib/firefox/firefox:83389): Gtk-WARNING **: 16:18:43.250: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1611602323738	Marionette	INFO	Listening on port 38367
+1611602323764	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(/usr/lib/firefox/firefox:83487): Gtk-WARNING **: 16:18:44.165: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+1611602325979	Marionette	INFO	Stopped listening on port 38367
+1611602400210	geckodriver	INFO	Listening on 127.0.0.1:35301
+1611602400212	mozrunner::runner	INFO	Running command: "/usr/lib/firefox/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileeepw8w"
+
+(firefox:83698): Gtk-WARNING **: 16:20:00.251: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+
+(/usr/lib/firefox/firefox:83777): Gtk-WARNING **: 16:20:00.751: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+
+(/usr/lib/firefox/firefox:83798): Gtk-WARNING **: 16:20:00.820: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1611602401296	Marionette	INFO	Listening on port 38941
+1611602401325	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(/usr/lib/firefox/firefox:83894): Gtk-WARNING **: 16:20:01.734: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+1611602404324	Marionette	INFO	Stopped listening on port 38941
+1611602418277	geckodriver	INFO	Listening on 127.0.0.1:60191
+1611602418278	mozrunner::runner	INFO	Running command: "/usr/lib/firefox/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileDnnNdu"
+
+(firefox:84005): Gtk-WARNING **: 16:20:18.303: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+
+(/usr/lib/firefox/firefox:84096): Gtk-WARNING **: 16:20:18.781: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+
+(/usr/lib/firefox/firefox:84119): Gtk-WARNING **: 16:20:18.841: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1611602419286	Marionette	INFO	Listening on port 36139
+1611602419391	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(/usr/lib/firefox/firefox:84200): Gtk-WARNING **: 16:20:19.767: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+JavaScript error: https://www.nike.com.br/Snkrs/Produto/LeBron-18/153-169-211-280003, line 2: TypeError: (intermediate value)() is not a function
+1611602421586	Marionette	INFO	Stopped listening on port 36139
