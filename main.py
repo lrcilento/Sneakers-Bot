@@ -9,6 +9,8 @@ from selenium.webdriver.common.keys import Keys
 from config import *
 from credentials import *
 
+geckodriver_autoinstaller.install()
+
 def run():
     initialTime = time.time()
     avaliable = True
