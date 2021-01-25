@@ -3467,3 +3467,37 @@ console.warn: SearchSettings: "get: No settings file exists, new profile?" (new 
 JavaScript error: https://www.nike.com.br/Snkrs/Produto/LeBron-18/153-169-211-280003, line 2: TypeError: (intermediate value)() is not a function
 Exiting due to channel error.
 Exiting due to channel error.
+1611600301993	geckodriver	INFO	Listening on 127.0.0.1:53309
+1611600302996	mozrunner::runner	INFO	Running command: "/usr/lib/firefox/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileciQRuG"
+
+(firefox:79599): Gtk-WARNING **: 15:45:03.022: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+
+(/usr/lib/firefox/firefox:79691): Gtk-WARNING **: 15:45:03.779: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+
+(/usr/lib/firefox/firefox:79714): Gtk-WARNING **: 15:45:03.844: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1611600304565	Marionette	INFO	Listening on port 37305
+1611600304612	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(/usr/lib/firefox/firefox:79795): Gtk-WARNING **: 15:45:04.767: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
+JavaScript error: https://www.nike.com.br/Snkrs/Produto/LeBron-18/153-169-211-280003, line 2: TypeError: (intermediate value)() is not a function
+JavaScript error: https://unite.nike.com.br/s3/unite/app/862/scripts/app.min.js, line 1: Error: The placeholder for login is missing. (nike-unite-login-view)
+JavaScript error: https://www.nike.com/assets/measure/data-capture/analytics-client.min.js, line 8: TypeError: this.findField is not a function
+JavaScript error: https://www.nike.com.br/Snkrs/Produto/LeBron-18/153-169-211-280003#, line 2: TypeError: (intermediate value)() is not a function
+JavaScript error: https://unite.nike.com.br/s3/unite/app/862/scripts/app.min.js, line 1: Error: The placeholder for login is missing. (nike-unite-login-view)
+JavaScript error: https://www.nike.com/assets/measure/data-capture/analytics-client.min.js, line 8: TypeError: this.findField is not a function
+JavaScript error: https://www.nike.com.br/Carrinho, line 2: TypeError: (intermediate value)() is not a function
+JavaScript error: https://www.nike.com.br/Carrinho, line 2: SyntaxError: expected property name, got end of script
+1611600332418	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript error: https://images.lojanike.com.br/site/ni/dist/js/Index.js?p=0&v=e9feb37520075f3a5f62ac87dc877908&a=PRODUCAO&nopack, line 1: SyntaxError: JSON.parse: unexpected character at line 1 column 110 of the JSON data
+JavaScript error: https://www.nike.com.br/Checkout, line 2: TypeError: (intermediate value)() is not a function
+JavaScript error: https://www.nike.com.br/Checkout, line 2: SyntaxError: expected property name, got end of script
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+JavaScript error: https://unite.nike.com.br/s3/unite/app/862/scripts/app.min.js, line 1: Error: The placeholder for login is missing. (nike-unite-login-view)
+JavaScript error: https://www.nike.com/assets/measure/data-capture/analytics-client.min.js, line 8: TypeError: this.findField is not a function
+1611600337269	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://marionette/content/sync.js:235:19
+TimedPromise@chrome://marionette/content/sync.js:220:10
+interaction.flushEventLoop@chrome://marionette/content/interaction.js:418:10
+webdriverClickElement@chrome://marionette/content/interaction.js:179:31
+1611600352159	Marionette	INFO	Stopped listening on port 37305
