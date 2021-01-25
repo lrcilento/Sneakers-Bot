@@ -5,6 +5,7 @@ import geckodriver_autoinstaller
 from selenium import webdriver
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
+from selenium.webdriver import FirefoxOptions
 from selenium.webdriver.common.keys import Keys
 from config import *
 from credentials import *
@@ -202,6 +203,10 @@ def run():
         print("Tempo decorrido: "+str(finalTime - initialTime)+"s")
         return True
 
+binary = FirefoxBinary('/usr/lib/firefox/firefox')
+caps = DesiredCapabilities().FIREFOX
+caps["pageLoadStrategy"] = "eager"
+
 if test:
     dropped = True
 else:
@@ -213,19 +218,14 @@ lastMinute = None
 while(True):
     if test:
         print("Modo teste ativado, ignorando horário...")
-        binary = FirefoxBinary('/usr/lib/firefox/firefox')
-        caps = DesiredCapabilities().FIREFOX
-        caps["pageLoadStrategy"] = "eager"
         driver = webdriver.Firefox(capabilities=caps, firefox_binary=binary)
+        driver.maximize_window()
     else:
         nowHour = datetime.datetime.now().hour
         nowMinute = datetime.datetime.now().minute
         now = str(nowHour)+":"+str(nowMinute)
         if startTime == now and dropped == False:
             dropped = True
-            binary = FirefoxBinary('/usr/lib/firefox/firefox')
-            caps = DesiredCapabilities().FIREFOX
-            caps["pageLoadStrategy"] = "eager"
             driver = webdriver.Firefox(capabilities=caps, firefox_binary=binary)
             driver.maximize_window()
         else:

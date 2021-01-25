@@ -3544,3 +3544,85 @@ console.warn: SearchSettings: "get: No settings file exists, new profile?" (new 
 (/usr/lib/firefox/firefox:84200): Gtk-WARNING **: 16:20:19.767: Theme parsing error: gtk.css:6357:24: 'none' is not a valid color name
 JavaScript error: https://www.nike.com.br/Snkrs/Produto/LeBron-18/153-169-211-280003, line 2: TypeError: (intermediate value)() is not a function
 1611602421586	Marionette	INFO	Stopped listening on port 36139
+1611602716703	geckodriver	INFO	Listening on 127.0.0.1:44575
+1611602716704	mozrunner::runner	INFO	Running command: "/usr/lib/firefox/firefox" "--marionette" "--headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile7F9pUp"
+*** You are running in headless mode.
+
+(firefox:84897): GLib-GObject-WARNING **: 16:25:16.929: invalid (NULL) pointer instance
+
+(firefox:84897): GLib-GObject-CRITICAL **: 16:25:16.929: g_signal_connect_data: assertion 'G_TYPE_CHECK_INSTANCE (instance)' failed
+
+(/usr/lib/firefox/firefox:84988): GLib-GObject-WARNING **: 16:25:17.172: invalid (NULL) pointer instance
+
+(/usr/lib/firefox/firefox:84988): GLib-GObject-CRITICAL **: 16:25:17.172: g_signal_connect_data: assertion 'G_TYPE_CHECK_INSTANCE (instance)' failed
+
+(/usr/lib/firefox/firefox:85009): GLib-GObject-WARNING **: 16:25:17.229: invalid (NULL) pointer instance
+
+(/usr/lib/firefox/firefox:85009): GLib-GObject-CRITICAL **: 16:25:17.229: g_signal_connect_data: assertion 'G_TYPE_CHECK_INSTANCE (instance)' failed
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1611602717818	Marionette	INFO	Listening on port 44165
+1611602717917	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(/usr/lib/firefox/firefox:85092): GLib-GObject-WARNING **: 16:25:18.144: invalid (NULL) pointer instance
+
+(/usr/lib/firefox/firefox:85092): GLib-GObject-CRITICAL **: 16:25:18.145: g_signal_connect_data: assertion 'G_TYPE_CHECK_INSTANCE (instance)' failed
+1611602806467	geckodriver	INFO	Listening on 127.0.0.1:42583
+1611602807470	mozrunner::runner	INFO	Running command: "/usr/lib/firefox/firefox" "--marionette" "--headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilewTs8AP"
+*** You are running in headless mode.
+
+(firefox:85317): GLib-GObject-WARNING **: 16:26:47.695: invalid (NULL) pointer instance
+
+(firefox:85317): GLib-GObject-CRITICAL **: 16:26:47.695: g_signal_connect_data: assertion 'G_TYPE_CHECK_INSTANCE (instance)' failed
+
+(/usr/lib/firefox/firefox:85409): GLib-GObject-WARNING **: 16:26:47.950: invalid (NULL) pointer instance
+
+(/usr/lib/firefox/firefox:85409): GLib-GObject-CRITICAL **: 16:26:47.950: g_signal_connect_data: assertion 'G_TYPE_CHECK_INSTANCE (instance)' failed
+
+(/usr/lib/firefox/firefox:85432): GLib-GObject-WARNING **: 16:26:48.008: invalid (NULL) pointer instance
+
+(/usr/lib/firefox/firefox:85432): GLib-GObject-CRITICAL **: 16:26:48.008: g_signal_connect_data: assertion 'G_TYPE_CHECK_INSTANCE (instance)' failed
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1611602808596	Marionette	INFO	Listening on port 40847
+1611602808682	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(/usr/lib/firefox/firefox:85520): GLib-GObject-WARNING **: 16:26:48.913: invalid (NULL) pointer instance
+
+(/usr/lib/firefox/firefox:85520): GLib-GObject-CRITICAL **: 16:26:48.913: g_signal_connect_data: assertion 'G_TYPE_CHECK_INSTANCE (instance)' failed
+JavaScript error: https://www.nike.com.br/Snkrs/Produto/LeBron-18/153-169-211-280003, line 2: TypeError: (intermediate value)() is not a function
+JavaScript error: https://images.lojanike.com.br/site/ni/dist/js/Index.js?p=0&v=e9feb37520075f3a5f62ac87dc877908&a=PRODUCAO&nopack, line 1: ReferenceError: grecaptcha is not defined
+JavaScript error: https://unite.nike.com.br/s3/unite/app/862/scripts/app.min.js, line 1: Error: The placeholder for login is missing. (nike-unite-login-view)
+JavaScript error: https://www.nike.com/assets/measure/data-capture/analytics-client.min.js, line 8: TypeError: this.findField is not a function
+JavaScript error: https://ssl.lomadee.com/resources/scripts/src/5901.js, line 5: ReferenceError: nikeDataLayer is not defined
+JavaScript error: https://ssl.lomadee.com/resources/scripts/src/5901.js, line 5: ReferenceError: nikeDataLayer is not defined
+JavaScript error: https://ssl.lomadee.com/resources/scripts/src/5901.js, line 5: ReferenceError: nikeDataLayer is not defined
+JavaScript error: https://ssl.lomadee.com/resources/scripts/src/5901.js, line 5: ReferenceError: nikeDataLayer is not defined
+JavaScript error: https://ssl.lomadee.com/resources/scripts/src/5901.js, line 5: ReferenceError: nikeDataLayer is not defined
+JavaScript error: https://ssl.lomadee.com/resources/scripts/src/5901.js, line 5: ReferenceError: nikeDataLayer is not defined
+JavaScript error: https://ssl.lomadee.com/resources/scripts/src/5901.js, line 5: ReferenceError: nikeDataLayer is not defined
+JavaScript error: https://ssl.lomadee.com/resources/scripts/src/5901.js, line 5: ReferenceError: nikeDataLayer is not defined
+JavaScript error: https://ssl.lomadee.com/resources/scripts/src/5901.js, line 5: ReferenceError: nikeDataLayer is not defined
+JavaScript error: https://ssl.lomadee.com/resources/scripts/src/5901.js, line 5: ReferenceError: nikeDataLayer is not defined
+JavaScript error: https://ssl.lomadee.com/resources/scripts/src/5901.js, line 5: ReferenceError: nikeDataLayer is not defined
+JavaScript error: https://ssl.lomadee.com/resources/scripts/src/5901.js, line 5: ReferenceError: nikeDataLayer is not defined
+JavaScript error: https://ssl.lomadee.com/resources/scripts/src/5901.js, line 5: ReferenceError: nikeDataLayer is not defined
+JavaScript error: https://ssl.lomadee.com/resources/scripts/src/5901.js, line 5: ReferenceError: nikeDataLayer is not defined
+JavaScript error: https://ssl.lomadee.com/resources/scripts/src/5901.js, line 5: ReferenceError: nikeDataLayer is not defined
+JavaScript error: https://ssl.lomadee.com/resources/scripts/src/5901.js, line 5: ReferenceError: nikeDataLayer is not defined
+JavaScript error: https://ssl.lomadee.com/resources/scripts/src/5901.js, line 5: ReferenceError: nikeDataLayer is not defined
+JavaScript error: https://ssl.lomadee.com/resources/scripts/src/5901.js, line 5: ReferenceError: nikeDataLayer is not defined
+JavaScript error: https://ssl.lomadee.com/resources/scripts/src/5901.js, line 5: ReferenceError: nikeDataLayer is not defined
+JavaScript error: https://ssl.lomadee.com/resources/scripts/src/5901.js, line 5: ReferenceError: nikeDataLayer is not defined
+JavaScript error: https://ssl.lomadee.com/resources/scripts/src/5901.js, line 5: ReferenceError: nikeDataLayer is not defined
+JavaScript error: https://ssl.lomadee.com/resources/scripts/src/5901.js, line 5: ReferenceError: nikeDataLayer is not defined
+JavaScript error: https://ssl.lomadee.com/resources/scripts/src/5901.js, line 5: ReferenceError: nikeDataLayer is not defined
+JavaScript error: https://ssl.lomadee.com/resources/scripts/src/5901.js, line 5: ReferenceError: nikeDataLayer is not defined
+JavaScript error: https://ssl.lomadee.com/resources/scripts/src/5901.js, line 5: ReferenceError: nikeDataLayer is not defined
+JavaScript error: https://ssl.lomadee.com/resources/scripts/src/5901.js, line 5: ReferenceError: nikeDataLayer is not defined
+JavaScript error: https://ssl.lomadee.com/resources/scripts/src/5901.js, line 5: ReferenceError: nikeDataLayer is not defined
+JavaScript error: https://ssl.lomadee.com/resources/scripts/src/5901.js, line 5: ReferenceError: nikeDataLayer is not defined
+JavaScript error: https://ssl.lomadee.com/resources/scripts/src/5901.js, line 5: ReferenceError: nikeDataLayer is not defined
+JavaScript error: https://ssl.lomadee.com/resources/scripts/src/5901.js, line 5: ReferenceError: nikeDataLayer is not defined
+JavaScript error: https://ssl.lomadee.com/resources/scripts/src/5901.js, line 5: ReferenceError: nikeDataLayer is not defined
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
