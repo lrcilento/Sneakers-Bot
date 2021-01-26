@@ -10,7 +10,7 @@ envFile.write("email = '"+input("Insira seu e-mail de login do site da Nike: ")+
 envFile.write("password = '"+input("Insira sua senha do site da Nike: ")+"'\n")
 envFile.write("phoneNumber = '"+input("Insira o número de celula que deseja receber o SMS no formato '11987654321': ")+"'\n")
 envFile.write("targetURL = '"+input("Insira a URL completa do Sneaker que deseja comprar (com 'https://'): ")+"'\n")
-tamanhos = input("Insira os tamanhos que deseja comprar, em ordem de preferencia e seperados por espaço (e. g.: 39 40 42):").split(" ")
+tamanhos = input("Insira os tamanhos que deseja comprar, em ordem de preferencia e seperados por espaço (e. g.: 39 40 42): ").split(" ")
 for x in range(0, len(tamanhos)):
     tamanhos[x] = int(tamanhos[x])
 envFile.write("sizes = "+str(tamanhos)+"\n")
