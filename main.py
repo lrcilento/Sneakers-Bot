@@ -19,7 +19,7 @@ def run():
 
     while(True):
         try:
-            driver.find_element_by_xpath(sizeXPaths[0])
+            driver.find_element_by_xpath("//button[@id='{0}']".format(loginElementID))
             print("Está!")
             break
         except:
@@ -34,7 +34,20 @@ def run():
                 time.sleep(0.1)
                 driver.find_element_by_tag_name('body').send_keys(Keys.PAGE_DOWN)
                 time.sleep(0.1)
-            time.sleep(0.1)
+                try:
+                    driver.find_element_by_xpath("//button[@id='{0}']".format(loginElementID))
+                    print("Está!")
+                    break
+                except:
+                    try:
+                        driver.find_element_by_id(remindMeButtonID)
+                        print("Não está disponível ainda...")
+                        avaliable = False
+                        time.sleep(2)
+                        break
+                    except:
+                        time.sleep(0.1)
+                        driver.find_element_by_tag_name('body').send_keys(Keys.PAGE_DOWN)
 
     if avaliable:
         print("Procurando botão de login...")
@@ -64,7 +77,7 @@ def run():
         print("Procurando tabela de números...")
         while(True):
             try:
-                driver.find_element_by_xpath(sizeXPaths[0])
+                driver.find_element_by_id(buyButtonID)
                 print("Achei!")
                 break
             except:
@@ -72,7 +85,15 @@ def run():
                 driver.find_element_by_tag_name('body').send_keys(Keys.HOME)
                 time.sleep(0.1)
                 driver.find_element_by_tag_name('body').send_keys(Keys.PAGE_DOWN)
-        
+                try:
+                    driver.find_element_by_id(buyButtonID)
+                    print("Achei!")
+                    break
+                except:
+                    time.sleep(0.1)
+                    driver.find_element_by_tag_name('body').send_keys(Keys.PAGE_DOWN)
+
+        avaliableSize = None
         for x in range(0, len(sizeXPaths)):
             try:
                 if driver.find_element_by_xpath(sizeXPaths[x]).find_element_by_xpath('..').get_attribute('class') != "tamanho-desabilitado":
@@ -86,6 +107,7 @@ def run():
 
         if avaliableSize == None:
             print("Nenhum tamanho disponível, verifique a lista e tente novamente.")
+            return True
 
         else:
             print("Adicionando número "+avaliableSize[-4:-2]+" ao carrinho...")
@@ -104,6 +126,7 @@ def run():
                         try:
                             driver.find_element_by_xpath(avaliableSize).click()
                             driver.find_element_by_id(buyButtonID).click()
+                            print("Adicionado!")
                             break
                         except:
                             try:
