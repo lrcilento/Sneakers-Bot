@@ -61,11 +61,6 @@ def run():
             except:
                 time.sleep(0.5)
 
-        driver.find_element_by_name('password').send_keys(password)
-        print("Senha inserida!")
-        driver.find_element_by_name('password').send_keys(Keys.RETURN)
-        print("Submetendo formulário...")
-
         driver.switch_to_default_content()
 
         while(True):
