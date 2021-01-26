@@ -6,7 +6,7 @@ from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 from selenium.webdriver import FirefoxOptions
 from selenium.webdriver.common.keys import Keys
 from config import *
-from credentials import *
+from env import *
 
 def run():
 
