@@ -106,6 +106,7 @@ def run():
                 else:
                     print("Número "+sizeXPaths[x][-4:-2]+" indisponível...")
             except:
+                print("Número "+sizeXPaths[x][-4:-2]+" inexistente...")
                 time.sleep(0.1)
 
         if avaliableSize == None:
