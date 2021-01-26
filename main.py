@@ -12,7 +12,6 @@ from credentials import *
 def run():
     initialTime = time.time()
     avaliable = True
-
     print("Carregando página...")
     driver.get(targetURL)
     print("Página carregada.")
@@ -33,6 +32,7 @@ def run():
                 break
             except:
                 print("Não achei o botão de aviso também, aguardando...")
+                driver.save_screenshot('debug_screenshot.png')
                 driver.find_element_by_tag_name('body').send_keys(Keys.HOME)
                 time.sleep(0.1)
                 driver.find_element_by_tag_name('body').send_keys(Keys.PAGE_DOWN)
@@ -57,6 +57,10 @@ def run():
             try:
                 driver.find_element_by_name('emailAddress').send_keys(email)
                 print("Email inserido!")
+                driver.find_element_by_name('password').send_keys(password)
+                print("Senha inserida!")
+                driver.find_element_by_name('password').send_keys(Keys.ENTER)
+                print("Submetendo formulário...")
                 break
             except:
                 time.sleep(0.5)
@@ -89,15 +93,30 @@ def run():
         while(True):
             try:
                 driver.find_element_by_xpath(avaliableSize).click()
-                print("Adicionando ao carrinho...")
+                print("Adicionando número "+avaliableSize[-4:-2]+" ao carrinho...")
                 driver.find_element_by_id(buyButtonID).click()
                 break
             except:
+                driver.save_screenshot('debug_screenshot.png')
+                print("Não encontrei o botão, vou tentar descer a página...")
                 time.sleep(0.5)
                 try:
                     driver.find_element_by_tag_name('body').send_keys(Keys.HOME)
                     time.sleep(0.1)
                     driver.find_element_by_tag_name('body').send_keys(Keys.PAGE_DOWN)
+                    try:
+                        driver.find_element_by_xpath(avaliableSize).click()
+                        print("Adicionando número "+avaliableSize[-4:-2]+" ao carrinho...")
+                        driver.find_element_by_id(buyButtonID).click()
+                        break
+                    except:
+                        driver.save_screenshot('debug_screenshot.png')
+                        print("Ainda não encontrei, vou descer mais ainda...")
+                        try:
+                            driver.find_element_by_tag_name('body').send_keys(Keys.PAGE_DOWN)
+                            time.sleep(0.5)
+                        except:
+                            time.sleep(0.5)
                 except:
                     time.sleep(0.5)
 
@@ -108,6 +127,24 @@ def run():
                 print("Achei!")
                 break
             except:
+                print("Verificando se precisa do SMS...")
+                try:
+                    driver.find_element_by_xpath("//input[@name='CelularCliente']")
+                    print("Precisa do SMS! Inserindo o número de telefone...")
+                    try:
+                        driver.find_element_by_xpath("//input[@name='CelularCliente']").send_keys(phoneNumber)
+                        driver.find_element_by_xpath("//input[@name='CelularCliente']").send_keys(Keys.ENTER)
+                        smsCode = input("Número inserido, por favor insira o código de verificação (seis dígitos):")
+                        try:
+                            for x in range(0, len(smsCode)):
+                                driver.find_element_by_xpath("//input[@name='Code{0}']").format(x+1).send_keys(smsCode[x])
+                            driver.find_element_by_xpath("//input[@name='Code{0}']").format(len(smsCode)).send_keys(Keys.ENTER)
+                        except:
+                            time.sleep(0.5)
+                    except:
+                        time.sleep(0.5)
+                except:
+                    time.sleep(0.5)
                 time.sleep(0.5)
 
         while(True):
@@ -118,6 +155,7 @@ def run():
                 print("Achei!")
             except:
                 time.sleep(0.5)
+                print("Talvez ainda falte o código de verificação, esperando...")
             print("Chechando se o modal abriu mesmo...")
             try:
                 driver.find_element_by_xpath(confirmAddressXPath)
@@ -192,25 +230,31 @@ def run():
                     time.sleep(0.5)
 
         finalTime = time.time()
+        driver.save_screenshot('debug_screenshot.png')
         print("Tempo decorrido: "+str(finalTime - initialTime)+"s")
         return True
 
 binary = FirefoxBinary('/usr/lib/firefox/firefox')
 caps = DesiredCapabilities().FIREFOX
 caps["pageLoadStrategy"] = "eager"
+opts = FirefoxOptions()
+if headless:
+    opts.set_headless()
+    opts.add_argument("--width=2560");
+    opts.add_argument("--height=1440");
 
 if test:
     dropped = True
 else:
     dropped = False
-print("Horário do drop: "+startTime)
+    print("Horário do drop: "+startTime)
 startHour = startTime[:2]
 startMinute = startTime[-2:]
 lastMinute = None
 while(True):
     if test:
         print("Modo teste ativado, ignorando horário...")
-        driver = webdriver.Firefox(capabilities=caps, firefox_binary=binary)
+        driver = webdriver.Firefox(firefox_options=opts, capabilities=caps, firefox_binary=binary)
         driver.maximize_window()
     else:
         nowHour = datetime.datetime.now().hour
@@ -218,7 +262,7 @@ while(True):
         now = str(nowHour)+":"+str(nowMinute)
         if startTime == now and dropped == False:
             dropped = True
-            driver = webdriver.Firefox(capabilities=caps, firefox_binary=binary)
+            driver = webdriver.Firefox(firefox_options=opts, capabilities=caps, firefox_binary=binary)
             driver.maximize_window()
         else:
             time.sleep(1)

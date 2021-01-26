@@ -1,6 +1,8 @@
 # CONFIGURAÇÕES
 # O modo teste faz com que ele ignore o horário de inicio e não finalize a compra
 test = True
+# O modo headless faz com que o navegador não seja aberto, não recomendado.
+headless = True
 # URL do drop (utilizar a URL completa, com HTTPS://)
 targetURL = 'https://www.nike.com.br/Snkrs/Produto/LeBron-18/153-169-211-280003'
 # Lista de tamanhos que deseja comprar, ela segue uma ordem de prioridade da esquerda para direita
@@ -8,8 +10,8 @@ targetURL = 'https://www.nike.com.br/Snkrs/Produto/LeBron-18/153-169-211-280003'
 sizes = [36, 37, 38]
 # Horário exato do drop no formato "HH:MM"
 startTime = "16:26"
-# Número de celular descartável no formato "000000000"
-disposableNumber = "953250445"
+# Número de celular no formato "11987654321"
+phoneNumber = "11987654321"
 
 # NÃO MEXER DAQUI PARA BAIXO
 buyButtonID = "btn-comprar"
@@ -24,7 +26,6 @@ termsCheckboxXPath = "/html/body/main/div/div[3]/div[8]/div[2]/div[3]/div/input"
 termsDivXPath = "/html/body/main/div/div[3]/div[8]/div[2]/div[3]/div"
 finalButtonID = "confirmar-pagamento"
 remindMeButtonID = "btn-avisar"
-disposableNumberURL = "https://sms24.me/number-5511"+disposableNumber
 sizeXPaths = []
 
 for x in range(0, len(sizes)):
