@@ -1,7 +1,7 @@
 # CONFIGURAÇÕES
 # O modo teste faz com que ele ignore o horário de inicio e não finalize a compra
 test = True
-# O modo headless faz com que o navegador não seja aberto, não recomendado.
+# O modo headless faz com que o navegador não seja aberto, é o modo de uso recomendado, desabilite-o apenas para debugar.
 headless = True
 # URL do drop (utilizar a URL completa, com HTTPS://)
 targetURL = 'https://www.nike.com.br/Snkrs/Produto/LeBron-18/153-169-211-280003'
