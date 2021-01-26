@@ -77,21 +77,24 @@ def run():
         print("Procurando tabela de números...")
         while(True):
             try:
-                driver.find_element_by_id(buyButtonID)
-                print("Achei!")
-                break
-            except:
-                time.sleep(0.1)
-                driver.find_element_by_tag_name('body').send_keys(Keys.HOME)
-                time.sleep(0.1)
-                driver.find_element_by_tag_name('body').send_keys(Keys.PAGE_DOWN)
                 try:
                     driver.find_element_by_id(buyButtonID)
                     print("Achei!")
                     break
                 except:
                     time.sleep(0.1)
+                    driver.find_element_by_tag_name('body').send_keys(Keys.HOME)
+                    time.sleep(0.1)
                     driver.find_element_by_tag_name('body').send_keys(Keys.PAGE_DOWN)
+                    try:
+                        driver.find_element_by_id(buyButtonID)
+                        print("Achei!")
+                        break
+                    except:
+                        time.sleep(0.1)
+                        driver.find_element_by_tag_name('body').send_keys(Keys.PAGE_DOWN)
+            except:
+                time.sleep(0.1)
 
         avaliableSize = None
         for x in range(0, len(sizeXPaths)):
