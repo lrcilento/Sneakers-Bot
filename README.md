@@ -12,3 +12,5 @@ Scrapper bot para compra no site da Nike BR.
       Crie um arquivo chamado credentials.py com as variáveis "email" e "password".
       python3 main.py
       (Caso esteja usando em VM, ela deve estar em tela cheia)
+      
+ATENÇÃO: O CÓDIGO DE VERIFICAÇÃO POR SMS DEVE SER INSERIDO MANUALMENTE NO TERMINAL QUANDO SOLICITADO
