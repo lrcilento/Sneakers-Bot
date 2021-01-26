@@ -229,8 +229,8 @@ if test:
 else:
     dropped = False
     print("Horário do drop: "+startTime)
-startHour = startTime[:2]
-startMinute = startTime[-2:]
+    startHour = startTime[:2]
+    startMinute = startTime[-2:]
 lastMinute = None
 while(True):
     if test:
