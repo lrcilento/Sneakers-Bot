@@ -264,7 +264,12 @@ while(True):
             time.sleep(1)
             if lastMinute != nowMinute:
                 lastMinute = nowMinute
-                print(str(((int(startHour)*60)+int(startMinute))-((int(nowHour)*60)+int(nowMinute)))+" minutos restantes...")
+                remainingMinutes = ((int(startHour)*60)+int(startMinute))-((int(nowHour)*60)+int(nowMinute))
+                if remainingMinutes > 0:
+                    print(str(remainingMinutes)+" minutos restantes...")
+                else:
+                    print("Parace que o drop já foi... Verifique o horário e tente novamente.")
+                    break
     if dropped:
         if run():
             break
