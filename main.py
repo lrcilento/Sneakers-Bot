@@ -32,7 +32,6 @@ def run():
                 break
             except:
                 print("Não achei o botão de aviso também, aguardando...")
-                driver.save_screenshot('debug_screenshot.png')
                 driver.find_element_by_tag_name('body').send_keys(Keys.HOME)
                 time.sleep(0.1)
                 driver.find_element_by_tag_name('body').send_keys(Keys.PAGE_DOWN)
@@ -97,7 +96,6 @@ def run():
                 driver.find_element_by_id(buyButtonID).click()
                 break
             except:
-                driver.save_screenshot('debug_screenshot.png')
                 print("Não encontrei o botão, vou tentar descer a página...")
                 time.sleep(0.5)
                 try:
@@ -110,7 +108,6 @@ def run():
                         driver.find_element_by_id(buyButtonID).click()
                         break
                     except:
-                        driver.save_screenshot('debug_screenshot.png')
                         print("Ainda não encontrei, vou descer mais ainda...")
                         try:
                             driver.find_element_by_tag_name('body').send_keys(Keys.PAGE_DOWN)
@@ -230,7 +227,6 @@ def run():
                     time.sleep(0.5)
 
         finalTime = time.time()
-        driver.save_screenshot('debug_screenshot.png')
         print("Tempo decorrido: "+str(finalTime - initialTime)+"s")
         return True
 
