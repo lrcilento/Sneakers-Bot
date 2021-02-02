@@ -271,8 +271,8 @@ if platform == 'linux':
     binary = FirefoxBinary('/usr/lib/firefox/firefox')
     path = '/usr/local/bin/geckodriver'
 else:
-    binary = FirefoxBinary("C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe")
-    path = "C:\\Program Files (x86)\\Mozilla Firefox\\geckodriver.exe"
+    binary = FirefoxBinary("C:\\Program Files\\Mozilla Firefox\\firefox.exe")
+    path = "C:\\Program Files\\Mozilla Firefox\\geckodriver.exe"
 caps = DesiredCapabilities().FIREFOX
 caps["pageLoadStrategy"] = "eager"
 opts = FirefoxOptions()
