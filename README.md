@@ -21,6 +21,7 @@ Windows:
       Faça download e instale o Git (https://git-scm.com/download/win)
       Faça download e instale o Python3 (https://www.python.org/ftp/python/3.9.1/python-3.9.1-amd64.exe)
       > git clone https://github.com/lrcilento/Sneakers-Bot.git
+      > cd Sneakers-Bot
       > pip install -r requirements.txt
       
       Uso:
