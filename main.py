@@ -289,23 +289,27 @@ else:
     startHour = startTime[:2]
     startMinute = startTime[-2:]
 lastMinute = None
+setup = False
+
 while(True):
-    get_sms()
-    if test:
-        print("Modo teste ativado, ignorando horário...")
-        driver = webdriver.Firefox(firefox_options=opts, capabilities=caps, firefox_binary=binary, executable_path=path)
-        driver.maximize_window()
-    else:
-        nowHour = datetime.datetime.now().hour
-        nowMinute = datetime.datetime.now().minute
-        remainingMinutes = ((int(startHour)*60)+int(startMinute))-((int(nowHour)*60)+int(nowMinute))
-        if remainingMinutes < 1 and dropped == False:
-            dropped = True
+    if setup == False:
+        if test:
+            print("Modo teste ativado, ignorando horário...")
             driver = webdriver.Firefox(firefox_options=opts, capabilities=caps, firefox_binary=binary, executable_path=path)
             driver.maximize_window()
+            setup = True
         else:
-            time.sleep(1)
-            print(str(remainingMinutes)+" minutos restantes...")
+            nowHour = datetime.datetime.now().hour
+            nowMinute = datetime.datetime.now().minute
+            remainingMinutes = ((int(startHour)*60)+int(startMinute))-((int(nowHour)*60)+int(nowMinute))
+            if remainingMinutes < 1 and dropped == False:
+                dropped = True
+                driver = webdriver.Firefox(firefox_options=opts, capabilities=caps, firefox_binary=binary, executable_path=path)
+                driver.maximize_window()
+                setup = False
+            else:
+                time.sleep(1)
+                print(str(remainingMinutes)+" minutos restantes...")
     if dropped:
         if run():
             break
