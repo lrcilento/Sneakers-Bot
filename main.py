@@ -13,7 +13,6 @@ def get_sms():
     return requests.get(smsAPIURL).json()["sms"]
 
 def run():
-
     print("Verificando SMS anterior...")
     oldSMS = get_sms()
     initialTime = time.time()
@@ -167,7 +166,14 @@ def run():
                                 smsCode = get_sms()
                             for x in range(0, len(smsCode)):
                                 driver.find_element_by_xpath("//input[@name='Code{0}']".format(x+1)).send_keys(smsCode[x])
-                            driver.find_element_by_xpath(confirmSMSButtonXPath).click()
+                                time.sleep(0.1)
+                            while(True):
+                                try:
+                                    driver.find_element_by_xpath(confirmSMSButtonXPath).click()
+                                    print("Finalizado")
+                                    break
+                                except:
+                                    time.sleep(0.1)
                         except:
                             time.sleep(0.1)
                     except:
@@ -183,19 +189,29 @@ def run():
                     time.sleep(0.1)
                 try:
                     driver.find_element_by_xpath(confirmAddressXPath)
+                    viableXPath = confirmAddressXPath
                     print("Abriu!")
                     break
                 except:
                     time.sleep(0.1)
+                try:
+                    driver.find_element_by_xpath(alternativeConfirmAddressXPath)
+                    print("Abriu!")
+                    viableXPath = alternativeConfirmAddressXPath
+                    break
+                except:
+                    time.sleep(0.1)
+
 
             print("Procurando botão de confirmação de endereço...")
+            # AQUI
             while(True):
                 try:
-                    driver.find_element_by_xpath(confirmAddressXPath).click()
+                    driver.find_element_by_xpath(viableXPath).click()
                 except:
                     time.sleep(0.1)
                 try:
-                    driver.find_element_by_xpath(confirmAddressXPath)
+                    driver.find_element_by_xpath(viableXPath)
                     time.sleep(0.1)
                 except:
                     print("Achei!")
