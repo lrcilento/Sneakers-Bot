@@ -4,14 +4,16 @@ Scrapper bot para compra no site da Nike BR.
 ## Instalação:
 
 ### Linux:
-      ```
-      $ sudo apt install git python3 python3-pip firefox firefox-geckodriver \n
-      $ git clone https://github.com/lrcilento/Sneakers-Bot.git
-      $ cd Sneakers-Bot
-      $ sudo pip install -r requirements.txt
-      ```
+```
+$ sudo apt install git python3 python3-pip firefox firefox-geckodriver \n
+$ git clone https://github.com/lrcilento/Sneakers-Bot.git
+$ cd Sneakers-Bot
+$ sudo pip install -r requirements.txt
+```
       
 ### Windows:
+
+Faça download dos seguintes arquivos:
 
       Faça download e instale o Firefox (https://www.mozilla.org/en-US/firefox/download/thanks/)
       Faça download e instale o Git (https://git-scm.com/download/win)
