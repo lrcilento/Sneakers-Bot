@@ -1,6 +1,7 @@
 import time
 import datetime
 import requests
+from sys import platform
 from selenium import webdriver
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
@@ -266,7 +267,10 @@ def run():
             print("Tempo decorrido: "+str(finalTime - initialTime)+"s")
             return True
 
-binary = FirefoxBinary('/usr/lib/firefox/firefox')
+if platform == 'linux':
+    binary = FirefoxBinary('/usr/lib/firefox/firefox')
+else:
+    binary = FirefoxBinary("C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe")
 caps = DesiredCapabilities().FIREFOX
 caps["pageLoadStrategy"] = "eager"
 opts = FirefoxOptions()
