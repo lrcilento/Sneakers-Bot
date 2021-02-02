@@ -1,5 +1,3 @@
-# Sneakers Bot
-
 ## Instalação:
 
 ### Linux:
