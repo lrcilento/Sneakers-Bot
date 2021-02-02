@@ -29,3 +29,6 @@ Windows:
       Uso:
       > python3 setup.py
       > python3 main.py
+      ou
+      > python setup.py
+      > python main.py
