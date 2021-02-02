@@ -1,5 +1,4 @@
-# Sneakers-Bot
-Scrapper bot para compra no site da Nike BR.
+# Sneakers Bot
 
 ## Instalação:
 
