@@ -1,5 +1,6 @@
 import time
 import datetime
+import requests
 from selenium import webdriver
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
@@ -8,8 +9,13 @@ from selenium.webdriver.common.keys import Keys
 from config import *
 from env import *
 
+def get_sms():
+    return requests.get(smsAPIURL).json()["sms"]
+
 def run():
 
+    print("Verificando SMS anterior...")
+    oldSMS = get_sms()
     initialTime = time.time()
     avaliable = True
     print("Carregando página...")
@@ -156,7 +162,9 @@ def run():
                                 driver.find_element_by_xpath("//input[@name='CelularCliente']").send_keys(number)
                             print("Precisa do SMS! Inserindo o número de telefone...")
                             driver.find_element_by_xpath("//input[@name='CelularCliente']").send_keys(Keys.ENTER)
-                            smsCode = input("Número inserido, por favor insira o código de verificação (seis dígitos):")
+                            smsCode = oldSMS
+                            while smsCode == oldSMS:
+                                smsCode = get_sms()
                             for x in range(0, len(smsCode)):
                                 driver.find_element_by_xpath("//input[@name='Code{0}']".format(x+1)).send_keys(smsCode[x])
                             driver.find_element_by_xpath(confirmSMSButtonXPath).click()
@@ -260,6 +268,7 @@ else:
     startMinute = startTime[-2:]
 lastMinute = None
 while(True):
+    get_sms()
     if test:
         print("Modo teste ativado, ignorando horário...")
         driver = webdriver.Firefox(firefox_options=opts, capabilities=caps, firefox_binary=binary)
@@ -267,21 +276,14 @@ while(True):
     else:
         nowHour = datetime.datetime.now().hour
         nowMinute = datetime.datetime.now().minute
-        now = str(nowHour)+":"+str(nowMinute)
-        if startTime == now and dropped == False:
+        remainingMinutes = ((int(startHour)*60)+int(startMinute))-((int(nowHour)*60)+int(nowMinute))
+        if remainingMinutes < 1 and dropped == False:
             dropped = True
             driver = webdriver.Firefox(firefox_options=opts, capabilities=caps, firefox_binary=binary)
             driver.maximize_window()
         else:
             time.sleep(1)
-            if lastMinute != nowMinute:
-                lastMinute = nowMinute
-                remainingMinutes = ((int(startHour)*60)+int(startMinute))-((int(nowHour)*60)+int(nowMinute))
-                if remainingMinutes > 0:
-                    print(str(remainingMinutes)+" minutos restantes...")
-                else:
-                    print("Parace que o drop já foi... Verifique o horário e tente novamente.")
-                    break
+            print(str(remainingMinutes)+" minutos restantes...")
     if dropped:
         if run():
             break
