@@ -28,3 +28,13 @@ $ pip install -r requirements.txt
 $ python setup.py
 $ python main.py
 ```
+
+## Troubleshooting:
+1. Tente 'python3' ao invés de 'python' e 'pip3' ao invés de 'pip' caso algum desses comando dê problema.
+2. Caso haja algum problema com o firefox e/ou geckodriver, assegure-se de que os caminhos são os listados abaixo:
+   - Linux:
+     - Firefox: /usr/lib/firefox/firefox/
+     - Geckodriver: /usr/local/bin/geckodriver/
+   - Windows:
+     - Firefox: C:\Program Files\Mozilla Firefox\firefox.exe
+     - Geckodriver: C:\Program Files\Mozilla Firefox\geckodriver.exe
