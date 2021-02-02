@@ -269,6 +269,7 @@ def run():
 
 if platform == 'linux':
     binary = FirefoxBinary('/usr/lib/firefox/firefox')
+    path = '/usr/local/bin/geckodriver'
 else:
     binary = FirefoxBinary("C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe")
     path = "C:\\Program Files (x86)\\Mozilla Firefox\\geckodriver.exe"
@@ -292,7 +293,7 @@ while(True):
     get_sms()
     if test:
         print("Modo teste ativado, ignorando horário...")
-        driver = webdriver.Firefox(firefox_options=opts, capabilities=caps, firefox_binary=binary)
+        driver = webdriver.Firefox(firefox_options=opts, capabilities=caps, firefox_binary=binary, executable_path=path)
         driver.maximize_window()
     else:
         nowHour = datetime.datetime.now().hour
@@ -300,7 +301,7 @@ while(True):
         remainingMinutes = ((int(startHour)*60)+int(startMinute))-((int(nowHour)*60)+int(nowMinute))
         if remainingMinutes < 1 and dropped == False:
             dropped = True
-            driver = webdriver.Firefox(firefox_options=opts, capabilities=caps, firefox_binary=binary)
+            driver = webdriver.Firefox(firefox_options=opts, capabilities=caps, firefox_binary=binary, executable_path=path)
             driver.maximize_window()
         else:
             time.sleep(1)
