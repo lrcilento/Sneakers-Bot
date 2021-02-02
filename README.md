@@ -20,6 +20,7 @@ Windows:
       Faça download e instale o Firefox, Git e Python 3
       Faça download do pip.py (https://bootstrap.pypa.io/get-pip.py)
       > python get-pip.py
+      > git clone https://github.com/lrcilento/Sneakers-Bot.git
       > pip install -r requirements.txt
       
       Uso:
