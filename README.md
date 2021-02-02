@@ -11,5 +11,3 @@ Scrapper bot para compra no site da Nike BR.
       Uso:
       python3 setup.py
       python3 main.py
-      
-ATENÇÃO: O CÓDIGO DE VERIFICAÇÃO POR SMS DEVE SER INSERIDO MANUALMENTE NO TERMINAL QUANDO SOLICITADO
