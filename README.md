@@ -19,7 +19,7 @@ Windows:
       Instalação:
       Faça download e instale o Firefox (https://www.mozilla.org/en-US/firefox/download/thanks/)
       Faça download e instale o Git (https://git-scm.com/download/win)
-      Faça download e instale o Python3 (https://www.python.org/ftp/python/3.9.1/python-3.9.1-embed-amd64.zip)
+      Faça download e instale o Python3 (https://www.python.org/ftp/python/3.9.1/python-3.9.1-amd64.exe)
       Faça download do pip.py (https://bootstrap.pypa.io/get-pip.py)
       > python get-pip.py
       > git clone https://github.com/lrcilento/Sneakers-Bot.git
