@@ -28,6 +28,7 @@ $ pip install -r requirements.txt
 $ python setup.py
 $ python main.py
 ```
+Para rodar varias instâncias simultaneamente é só duplicar a pasta e rodar um 'setup.py' diferente para cada uma delas
 
 ## Troubleshooting:
 1. Tente 'python3' ao invés de 'python' e 'pip3' ao invés de 'pip' caso algum desses comando dê problema.
