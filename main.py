@@ -11,7 +11,12 @@ from config import *
 from env import *
 
 def get_sms():
-    return requests.get(smsAPIURL).json()["sms"]
+    try:
+        smsList = requests.get(smsAPIURL).json()
+        lastSMS = smsList[len(smsList) - 1]["SMS_CONTENT"]
+        return lastSMS
+    except:
+        return ""
 
 def run():
     print("Verificando SMS anterior...")
@@ -285,6 +290,7 @@ if test:
     dropped = True
 else:
     dropped = False
+    print("Credenciais: "+email+" ("+phoneNumber+")")
     print("Horário do drop: "+startTime)
     startHour = startTime[:2]
     startMinute = startTime[-2:]
@@ -309,7 +315,9 @@ while(True):
                 setup = False
             else:
                 time.sleep(1)
-                print(str(remainingMinutes)+" minutos restantes...")
+                if lastMinute != remainingMinutes:
+                    print(str(remainingMinutes)+" minutos restantes...")
+                lastMinute = remainingMinutes
     if dropped:
         if run():
             break

@@ -13,7 +13,7 @@ termsCheckboxXPath = "/html/body/main/div/div[3]/div[8]/div[2]/div[3]/div/input"
 termsDivXPath = "/html/body/main/div/div[3]/div[8]/div[2]/div[3]/div"
 finalButtonID = "confirmar-pagamento"
 remindMeButtonID = "btn-avisar"
-smsAPIURL = "https://sms-handler-api.herokuapp.com/sms"
+smsAPIURL = "http://sms-handler-com.umbler.net/sms/"+phoneNumber[2:]
 confirmSMSButtonXPath = "/html/body/div[22]/div/div/div[2]/form[2]/div[2]/button[1]"
 sizeXPaths = []
 
