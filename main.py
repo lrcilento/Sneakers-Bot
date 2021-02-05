@@ -28,7 +28,7 @@ def run():
     print("Página carregada.")
     print("Verificando se já está disponível...")
 
-    while(True):
+    for x in range(0, 250):
         try:
             driver.find_element_by_xpath("//button[@id='{0}']".format(loginElementID))
             print("Está!")
@@ -283,6 +283,9 @@ def run():
             finalTime = time.time()
             print("Tempo decorrido: "+str(finalTime - initialTime)+"s")
             return True
+    
+    else:
+        print("Tempo máximo de espera atingido, recarregando a página...")
 
 if platform == 'linux':
     binary = FirefoxBinary('/usr/lib/firefox/firefox')
