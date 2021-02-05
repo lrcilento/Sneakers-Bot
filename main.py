@@ -183,13 +183,20 @@ def run():
                         except:
                             time.sleep(0.1)
                     except:
-                        try:
-                            driver.find_element_by_id(buyButtonID).click()
-                            print("Adicionado!")
-                        except:
-                            time.sleep(0.1)
                         time.sleep(0.1)
                     time.sleep(0.1)
+
+            print("Verificando se já passou de página...")
+            while(True):
+                try:
+                    driver.find_element_by_id(buyButtonID)
+                    try:
+                        driver.find_element_by_id(buyButtonID).click()
+                    except:
+                        time.sleep(0.1)
+                except:
+                    print("Já!")
+                    break
 
             print("Procurando botão de seguir para o pagamento...")
             while(True):
