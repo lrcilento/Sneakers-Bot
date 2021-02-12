@@ -170,8 +170,8 @@ def run():
                             smsCode = oldSMS
                             while smsCode == oldSMS:
                                 smsCode = get_sms()
+                            time.sleep(1)
                             for x in range(0, len(smsCode)):
-                                time.sleep(0.1)
                                 driver.find_element_by_xpath("//input[@name='Code{0}']".format(x+1)).send_keys(smsCode[x])
                                 time.sleep(0.1)
                             while(True):
