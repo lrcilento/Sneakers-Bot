@@ -286,10 +286,10 @@ caps["pageLoadStrategy"] = "eager"
 opts = FirefoxOptions()
 if headless:
     opts.set_headless()
-    opts.add_argument("--width=2560");
-    opts.add_argument("--height=1440");
-    os.environ['MOZ_HEADLESS_WIDTH'] = '2560'
-    os.environ['MOZ_HEADLESS_HEIGHT'] = '1440'
+    opts.add_argument("--width=1920");
+    opts.add_argument("--height=1080");
+    os.environ['MOZ_HEADLESS_WIDTH'] = '1920'
+    os.environ['MOZ_HEADLESS_HEIGHT'] = '1080'
 
 if test:
     dropped = True
