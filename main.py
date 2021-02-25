@@ -261,7 +261,7 @@ def run():
                     print("Encerrando o fluxo de teste...")
 
                 finalTime = time.time()
-                print("Tempo decorrido: %6.1fs" % (finalTime - initialTime))
+                print("Tempo decorrido:%4.1fs" % (finalTime - initialTime))
                 return True
     
     else:
