@@ -19,171 +19,126 @@ def get_sms():
         return ""
 
 def run():
-    print("Verificando SMS anterior...")
-    oldSMS = get_sms()
     initialTime = time.time()
     avaliable = False
     brokenPage = False
     brokenLogin = False
     loaded = False
-    print("Carregando página...")
     driver.get(targetURL)
+    oldSMS = get_sms()
 
     while(True):
         if driver.execute_script("return document.readyState") == "complete":
-            print("Página carregada.")
             loaded = True
             break
         else:
             try:
                 driver.find_element_by_xpath("//button[@id='{0}']".format(loginElementID))
-                print("Está!")
                 avaliable = True
                 break
             except:
                 try:
                     driver.find_element_by_id(remindMeButtonID)
-                    print("Não está disponível ainda...")
-                    time.sleep(2)
                     break
                 except:
                     driver.find_element_by_tag_name('body').send_keys(Keys.HOME)
                     time.sleep(0.1)
                     driver.find_element_by_tag_name('body').send_keys(Keys.PAGE_DOWN)
-                    time.sleep(0.1)
                     try:
                         driver.find_element_by_xpath("//button[@id='{0}']".format(loginElementID))
-                        print("Está!")
                         avaliable = True
                         break
                     except:
                         try:
                             driver.find_element_by_id(remindMeButtonID)
-                            print("Não está disponível ainda...")
-                            time.sleep(2)
                             break
                         except:
-                            time.sleep(0.1)
+                            driver.find_element_by_tag_name('body').send_keys(Keys.PAGE_DOWN)
 
-    if loaded:
-        print("Verificando se já está disponível...")
+    if loaded and not avaliable:
+        print("Tentando encontrar o botão pela última vez...")
         while(True):
             try:
                 driver.find_element_by_xpath("//button[@id='{0}']".format(loginElementID))
-                print("Está!")
                 avaliable = True
                 break
             except:
+                driver.find_element_by_tag_name('body').send_keys(Keys.PAGE_DOWN)
                 try:
-                    driver.find_element_by_id(remindMeButtonID)
-                    print("Não está disponível ainda...")
-                    time.sleep(2)
+                    driver.find_element_by_xpath("//button[@id='{0}']".format(loginElementID))
+                    avaliable = True
                     break
                 except:
-                    driver.find_element_by_tag_name('body').send_keys(Keys.HOME)
-                    time.sleep(0.1)
-                    driver.find_element_by_tag_name('body').send_keys(Keys.PAGE_DOWN)
-                    time.sleep(0.1)
-                    try:
-                        driver.find_element_by_xpath("//button[@id='{0}']".format(loginElementID))
-                        print("Está!")
-                        avaliable = True
-                        break
-                    except:
-                        try:
-                            driver.find_element_by_id(remindMeButtonID)
-                            print("Não está disponível ainda...")
-                            time.sleep(2)
-                            break
-                        except:
-                            print("Parece que a página não carregou completamente...")
-                            break
+                    break
 
     if avaliable:
-        print("Procurando botão de login...")
         while(True):
             try:
                 driver.find_element_by_id(loginElementID).click()
-                print("Achei!")
                 break
             except:
-                time.sleep(0.1)
+                continue
 
         driver.switch_to_frame(loginFrameID)
 
-        print("Procurando formulário de login...")
         while(True):
             try:
                 driver.find_element_by_name('emailAddress').send_keys(email)
                 driver.find_element_by_name('password').send_keys(password)
                 driver.find_element_by_name('password').send_keys(Keys.ENTER)
-                print("Submetendo formulário...")
                 break
             except:
-                time.sleep(0.1)
+                continue
 
-        print("Procurando tabela de números...")
         while(True):
             try:
                 try:
                     driver.find_element_by_id(buyButtonID)
-                    print("Achei!")
                     break
                 except:
-                    time.sleep(0.1)
                     driver.find_element_by_tag_name('body').send_keys(Keys.HOME)
                     time.sleep(0.1)
                     driver.find_element_by_tag_name('body').send_keys(Keys.PAGE_DOWN)
                     try:
                         driver.find_element_by_id(buyButtonID)
-                        print("Achei!")
                         break
                     except:
-                        time.sleep(0.1)
                         driver.find_element_by_tag_name('body').send_keys(Keys.PAGE_DOWN)
                         try:
                             driver.switch_to_frame(loginFrameID)
                             driver.find_element_by_xpath(loginFrameErrorXPath)
-                            print("Erro ocorrido ao tentar realizar login, aguardando 5s antes de atualizar...")
-                            time.sleep(5)
+                            print("Erro ocorrido ao tentar realizar login...")
                             brokenLogin = True
                             break
                         except:
                             try:
                                 driver.switch_to_default_content()
                             except:
-                                time.sleep(0.1)
+                                continue
             except:
-                time.sleep(0.1)
+                continue
 
         if not brokenLogin:
             avaliableSize = None
             for x in range(0, len(sizeXPaths)):
                 try:
                     if driver.find_element_by_xpath(sizeXPaths[x]).find_element_by_xpath('..').get_attribute('class') != "tamanho-desabilitado":
-                        print("Número "+sizeXPaths[x][-4:-2]+" disponível, selecionando-o...")
                         avaliableSize = sizeXPaths[x]
                         break
-                    else:
-                        print("Número "+sizeXPaths[x][-4:-2]+" indisponível...")
                 except:
-                    print("Número "+sizeXPaths[x][-4:-2]+" inexistente...")
-                    time.sleep(0.1)
+                    continue
 
             if avaliableSize == None:
                 print("Nenhum tamanho disponível, verifique a lista e tente novamente.")
                 return True
 
             else:
-                print("Adicionando número "+avaliableSize[-4:-2]+" ao carrinho...")
                 while(True):
                     try:
                         driver.find_element_by_xpath(avaliableSize).click()
                         driver.find_element_by_id(buyButtonID).click()
-                        print("Adicionado!")
                         break
                     except:
-                        time.sleep(0.1)
                         try:
                             driver.find_element_by_tag_name('body').send_keys(Keys.HOME)
                             time.sleep(0.1)
@@ -191,152 +146,126 @@ def run():
                             try:
                                 driver.find_element_by_xpath(avaliableSize).click()
                                 driver.find_element_by_id(buyButtonID).click()
-                                print("Adicionado!")
                                 break
                             except:
                                 try:
                                     driver.find_element_by_tag_name('body').send_keys(Keys.PAGE_DOWN)
-                                    time.sleep(0.1)
                                 except:
-                                    time.sleep(0.1)
+                                    continue
                         except:
-                            time.sleep(0.1)
+                            continue
                 
-                print("Procurando botão de check-out...")
                 while(True):
                     try:
                         driver.find_element_by_xpath(checkoutButtonXPath).click()
-                        print("Botão de check-out disponível!")
                         break
                     except:
                         try:
                             driver.find_element_by_xpath("//input[@name='CelularCliente']")
+                            print("Precisa do SMS! Inserindo o número de telefone...")
                             try:
                                 for number in phoneNumber:
                                     time.sleep(0.1)
                                     driver.find_element_by_xpath("//input[@name='CelularCliente']").send_keys(number)
-                                print("Precisa do SMS! Inserindo o número de telefone...")
                                 driver.find_element_by_xpath("//input[@name='CelularCliente']").send_keys(Keys.ENTER)
                                 smsCode = oldSMS
                                 while smsCode == oldSMS:
                                     smsCode = get_sms()
-                                time.sleep(1)
                                 for x in range(0, len(smsCode)):
-                                    driver.find_element_by_xpath("//input[@name='Code{0}']".format(x+1)).send_keys(smsCode[x])
                                     time.sleep(0.1)
+                                    driver.find_element_by_xpath("//input[@name='Code{0}']".format(x+1)).send_keys(smsCode[x])
                                 while(True):
                                     try:
                                         driver.find_element_by_xpath(confirmSMSButtonXPath).click()
-                                        print("Finalizado")
                                         break
                                     except:
-                                        time.sleep(0.1)
+                                        continue
                             except:
-                                time.sleep(0.1)
+                                continue
                         except:
-                            time.sleep(0.1)
-                        time.sleep(0.1)
+                            continue
+                        continue
 
-                print("Verificando se já passou de página...")
                 while(True):
                     try:
                         driver.find_element_by_id(buyButtonID)
                         try:
                             driver.find_element_by_id(buyButtonID).click()
                         except:
-                            time.sleep(0.1)
+                            continue
                     except:
-                        print("Já!")
                         break
 
-                print("Procurando botão de seguir para o pagamento...")
                 while(True):
                     try:
                         driver.find_element_by_tag_name('body').send_keys(Keys.END)
                         driver.find_element_by_xpath(paymentButtonXPath).click()
-                    except:
-                        time.sleep(0.1)
-                    try:
-                        driver.find_element_by_xpath(confirmAddressXPath)
-                        viableXPath = confirmAddressXPath
-                        print("Abriu!")
-                        break
-                    except:
-                        time.sleep(0.1)
-                    try:
-                        driver.find_element_by_xpath(alternativeConfirmAddressXPath)
-                        print("Abriu!")
-                        viableXPath = alternativeConfirmAddressXPath
-                        break
-                    except:
-                        time.sleep(0.1)
+                    except:                       
+                        try:
+                            driver.find_element_by_xpath(confirmAddressXPath)
+                            viableXPath = confirmAddressXPath
+                            break
+                        except:
+                            try:
+                                driver.find_element_by_xpath(alternativeConfirmAddressXPath)
+                                viableXPath = alternativeConfirmAddressXPath
+                                break
+                            except:
+                                continue
 
-
-                print("Procurando botão de confirmação de endereço...")
                 while(True):
                     try:
                         driver.find_element_by_xpath(viableXPath).click()
                     except:
-                        time.sleep(0.1)
-                    try:
-                        driver.find_element_by_xpath(viableXPath)
-                        time.sleep(0.1)
-                    except:
-                        print("Achei!")
-                        break
+                        try:
+                            driver.find_element_by_xpath(viableXPath)
+                        except:
+                            break
                 
-                print("Procurando painel de cartões salvos...")
                 while(True):
                     try:
                         driver.find_element_by_id(cardsDivID).click()
-                        print("Achei!")
                         break
                     except:
-                        time.sleep(0.1)
+                        continue
 
-                print("Tentando selecionar cartão...")
                 while(True):
                     try:
                         driver.find_element_by_class_name(cardClassName).click()
-                        print("Consegui!")
                         break
                     except:
-                        time.sleep(0.1)
+                        continue
 
-                print("Procurando onde aceitar os termos...")
                 while(True):
                     try:
                         driver.find_element_by_xpath(termsCheckboxXPath).click()
-                        print("Achei o checkbox!")
                         break
                     except:
                         try:
                             driver.find_element_by_xpath(termsDivXPath).click()
-                            print("Achei o div inteiro!")
                             break
                         except:
-                            time.sleep(0.1)
-                        time.sleep(0.1)
+                            continue
+                        continue
 
                 if test == False:
-                    print("Tentando finalizar compra...")
                     while(True):
                         try:
                             driver.find_element_by_id(finalButtonID).click()
-                            print("Consegui!")
+                            print("Compra realizada com sucesso!")
                             break
                         except:
-                            time.sleep(0.1)
+                            continue
                 else:
-                    print("Modo teste ativado, encerrando o fluxo sem finalizar compra...")
+                    print("Encerrando o fluxo de teste...")
 
                 finalTime = time.time()
-                print("Tempo decorrido: "+str(finalTime - initialTime)+"s")
+                print("Tempo decorrido: %ss" % str(finalTime - initialTime))
                 return True
     
     else:
-        print("Tempo máximo de espera atingido, recarregando a página...")
-        time.sleep(2)
+        print("Algo deu errado, recarregando a página...")
+        time.sleep(1)
 
 if platform == 'linux':
     binary = FirefoxBinary('/usr/lib/firefox/firefox')
