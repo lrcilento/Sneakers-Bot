@@ -151,6 +151,12 @@ def run():
                             except:
                                 try:
                                     driver.find_element_by_tag_name('body').send_keys(Keys.PAGE_DOWN)
+                                    try:
+                                        driver.find_element_by_xpath(avaliableSize).click()
+                                        driver.find_element_by_id(buyButtonID).click()
+                                        break
+                                    except:
+                                        driver.find_element_by_tag_name('body').send_keys(Keys.PAGE_DOWN)
                                 except:
                                     continue
                         except:
@@ -279,8 +285,8 @@ caps["pageLoadStrategy"] = "eager"
 opts = FirefoxOptions()
 if headless:
     opts.set_headless()
-    opts.add_argument("--width=2560");
-    opts.add_argument("--height=1440");
+    opts.add_argument("--width=1920");
+    opts.add_argument("--height=1080");
 
 if test:
     dropped = True
