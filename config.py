@@ -1,5 +1,6 @@
 from env import *
 
+delay = 0.05
 buyButtonID = "btn-comprar"
 checkoutButtonXPath = '/html/body/main/div[4]/div/div[4]/a'
 loginElementID = "anchor-acessar-unite-oauth2"

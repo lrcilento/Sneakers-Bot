@@ -42,8 +42,9 @@ def run():
                     break
                 except:
                     driver.find_element_by_tag_name('body').send_keys(Keys.HOME)
-                    time.sleep(0.1)
+                    time.sleep(delay)
                     driver.find_element_by_tag_name('body').send_keys(Keys.PAGE_DOWN)
+                    time.sleep(delay)
                     try:
                         driver.find_element_by_xpath("//button[@id='{0}']".format(loginElementID))
                         avaliable = True
@@ -54,6 +55,7 @@ def run():
                             break
                         except:
                             driver.find_element_by_tag_name('body').send_keys(Keys.PAGE_DOWN)
+                            time.sleep(delay)
 
     if loaded and not avaliable:
         try:
@@ -61,11 +63,13 @@ def run():
             avaliable = True
         except:
             driver.find_element_by_tag_name('body').send_keys(Keys.PAGE_DOWN)
+            time.sleep(delay)
             try:
                 driver.find_element_by_xpath("//button[@id='{0}']".format(loginElementID))
                 avaliable = True
             except:
                 driver.find_element_by_tag_name('body').send_keys(Keys.PAGE_DOWN)
+                time.sleep(delay)
                 try:
                     driver.find_element_by_xpath("//button[@id='{0}']".format(loginElementID))
                     avaliable = True
@@ -98,7 +102,7 @@ def run():
                     break
                 except:
                     driver.find_element_by_tag_name('body').send_keys(Keys.HOME)
-                    time.sleep(0.1)
+                    time.sleep(delay)
                     driver.find_element_by_tag_name('body').send_keys(Keys.PAGE_DOWN)
                     try:
                         driver.find_element_by_id(buyButtonID)
@@ -142,8 +146,9 @@ def run():
                     except:
                         try:
                             driver.find_element_by_tag_name('body').send_keys(Keys.HOME)
-                            time.sleep(0.1)
+                            time.sleep(delay)
                             driver.find_element_by_tag_name('body').send_keys(Keys.PAGE_DOWN)
+                            time.sleep(delay)
                             try:
                                 driver.find_element_by_xpath(avaliableSize).click()
                                 driver.find_element_by_id(buyButtonID).click()
@@ -151,12 +156,14 @@ def run():
                             except:
                                 try:
                                     driver.find_element_by_tag_name('body').send_keys(Keys.PAGE_DOWN)
+                                    time.sleep(delay)
                                     try:
                                         driver.find_element_by_xpath(avaliableSize).click()
                                         driver.find_element_by_id(buyButtonID).click()
                                         break
                                     except:
                                         driver.find_element_by_tag_name('body').send_keys(Keys.PAGE_DOWN)
+                                        time.sleep(delay)
                                 except:
                                     continue
                         except:
@@ -172,14 +179,14 @@ def run():
                             print("Precisa do SMS! Inserindo o número de telefone...")
                             try:
                                 for number in phoneNumber:
-                                    time.sleep(0.1)
+                                    time.sleep(delay)
                                     driver.find_element_by_xpath("//input[@name='CelularCliente']").send_keys(number)
                                 driver.find_element_by_xpath("//input[@name='CelularCliente']").send_keys(Keys.ENTER)
                                 smsCode = oldSMS
                                 while smsCode == oldSMS:
                                     smsCode = get_sms()
                                 for x in range(0, len(smsCode)):
-                                    time.sleep(0.1)
+                                    time.sleep(delay)
                                     driver.find_element_by_xpath("//input[@name='Code{0}']".format(x+1)).send_keys(smsCode[x])
                                 while(True):
                                     try:
