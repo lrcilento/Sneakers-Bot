@@ -332,7 +332,7 @@ while(True):
                 dropped = True
                 driver = webdriver.Firefox(firefox_options=opts, capabilities=caps, firefox_binary=binary, executable_path=path)
                 driver.maximize_window()
-                setup = False
+                setup = True
             else:
                 time.sleep(1)
                 if lastMinute != remainingMinutes:
