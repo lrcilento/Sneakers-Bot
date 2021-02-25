@@ -25,10 +25,14 @@ def run():
     avaliable = True
     print("Carregando página...")
     driver.get(targetURL)
-    print("Página carregada.")
-    print("Verificando se já está disponível...")
 
-    for x in range(0, 250):
+    while(True):
+        if driver.execute_script("return document.readyState") == "complete":
+            print("Página carregada.")
+            break
+
+    print("Verificando se já está disponível...")
+    while(True):
         try:
             driver.find_element_by_xpath("//button[@id='{0}']".format(loginElementID))
             print("Está!")
