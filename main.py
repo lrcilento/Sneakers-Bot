@@ -1,5 +1,6 @@
 import time
 import datetime
+import os
 import requests
 from sys import platform
 from selenium import webdriver
@@ -157,13 +158,6 @@ def run():
                                 try:
                                     driver.find_element_by_tag_name('body').send_keys(Keys.PAGE_DOWN)
                                     time.sleep(delay)
-                                    try:
-                                        driver.find_element_by_xpath(avaliableSize).click()
-                                        driver.find_element_by_id(buyButtonID).click()
-                                        break
-                                    except:
-                                        driver.find_element_by_tag_name('body').send_keys(Keys.PAGE_DOWN)
-                                        time.sleep(delay)
                                 except:
                                     continue
                         except:
@@ -292,8 +286,10 @@ caps["pageLoadStrategy"] = "eager"
 opts = FirefoxOptions()
 if headless:
     opts.set_headless()
-    opts.add_argument("--width=1920");
-    opts.add_argument("--height=1080");
+    opts.add_argument("--width=2560");
+    opts.add_argument("--height=1440");
+    os.environ['MOZ_HEADLESS_WIDTH'] = '2560'
+    os.environ['MOZ_HEADLESS_HEIGHT'] = '1440'
 
 if test:
     dropped = True
