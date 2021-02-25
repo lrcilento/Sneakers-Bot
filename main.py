@@ -170,7 +170,6 @@ def run():
                     except:
                         try:
                             driver.find_element_by_xpath("//input[@name='CelularCliente']")
-                            print("Precisa do SMS! Inserindo o número de telefone...")
                             try:
                                 for number in phoneNumber:
                                     time.sleep(delay)
@@ -192,7 +191,6 @@ def run():
                                 continue
                         except:
                             continue
-                        continue
 
                 while(True):
                     try:
