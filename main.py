@@ -56,20 +56,21 @@ def run():
                             driver.find_element_by_tag_name('body').send_keys(Keys.PAGE_DOWN)
 
     if loaded and not avaliable:
-        print("Tentando encontrar o botão pela última vez...")
-        while(True):
+        try:
+            driver.find_element_by_xpath("//button[@id='{0}']".format(loginElementID))
+            avaliable = True
+        except:
+            driver.find_element_by_tag_name('body').send_keys(Keys.PAGE_DOWN)
             try:
                 driver.find_element_by_xpath("//button[@id='{0}']".format(loginElementID))
                 avaliable = True
-                break
             except:
                 driver.find_element_by_tag_name('body').send_keys(Keys.PAGE_DOWN)
                 try:
                     driver.find_element_by_xpath("//button[@id='{0}']".format(loginElementID))
                     avaliable = True
-                    break
                 except:
-                    break
+                    brokenPage = True
 
     if avaliable:
         while(True):
