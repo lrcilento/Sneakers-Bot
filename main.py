@@ -22,8 +22,9 @@ def run():
     print("Verificando SMS anterior...")
     oldSMS = get_sms()
     initialTime = time.time()
-    avaliable = True
+    avaliable = False
     brokenPage = False
+    brokenLogin = False
     loaded = False
     print("Carregando página...")
     driver.get(targetURL)
@@ -35,25 +36,14 @@ def run():
             break
         else:
             try:
-                driver.find_element_by_id(remindMeButtonID)
-                print("Não está disponível ainda...")
-                avaliable = False
-                break
-            except:
-                continue
-
-    if loaded:
-        print("Verificando se já está disponível...")
-        while(True):
-            try:
                 driver.find_element_by_xpath("//button[@id='{0}']".format(loginElementID))
                 print("Está!")
+                avaliable = True
                 break
             except:
                 try:
                     driver.find_element_by_id(remindMeButtonID)
                     print("Não está disponível ainda...")
-                    avaliable = False
                     time.sleep(2)
                     break
                 except:
@@ -64,20 +54,52 @@ def run():
                     try:
                         driver.find_element_by_xpath("//button[@id='{0}']".format(loginElementID))
                         print("Está!")
+                        avaliable = True
                         break
                     except:
                         try:
                             driver.find_element_by_id(remindMeButtonID)
                             print("Não está disponível ainda...")
-                            avaliable = False
+                            time.sleep(2)
+                            break
+                        except:
+                            time.sleep(0.1)
+
+    if loaded:
+        print("Verificando se já está disponível...")
+        while(True):
+            try:
+                driver.find_element_by_xpath("//button[@id='{0}']".format(loginElementID))
+                print("Está!")
+                avaliable = True
+                break
+            except:
+                try:
+                    driver.find_element_by_id(remindMeButtonID)
+                    print("Não está disponível ainda...")
+                    time.sleep(2)
+                    break
+                except:
+                    driver.find_element_by_tag_name('body').send_keys(Keys.HOME)
+                    time.sleep(0.1)
+                    driver.find_element_by_tag_name('body').send_keys(Keys.PAGE_DOWN)
+                    time.sleep(0.1)
+                    try:
+                        driver.find_element_by_xpath("//button[@id='{0}']".format(loginElementID))
+                        print("Está!")
+                        avaliable = True
+                        break
+                    except:
+                        try:
+                            driver.find_element_by_id(remindMeButtonID)
+                            print("Não está disponível ainda...")
                             time.sleep(2)
                             break
                         except:
                             print("Parece que a página não carregou completamente...")
-                            brokenPage = True
                             break
 
-    if avaliable and not brokenPage:
+    if avaliable:
         print("Procurando botão de login...")
         while(True):
             try:
@@ -100,8 +122,6 @@ def run():
             except:
                 time.sleep(0.1)
 
-        driver.switch_to_default_content()
-
         print("Procurando tabela de números...")
         while(True):
             try:
@@ -122,15 +142,21 @@ def run():
                         time.sleep(0.1)
                         driver.find_element_by_tag_name('body').send_keys(Keys.PAGE_DOWN)
                         try:
-                            driver.find_element_by_id(loginFrameErrorID)
-                            brokenPage = True
+                            driver.switch_to_frame(loginFrameID)
+                            driver.find_element_by_xpath(loginFrameErrorXPath)
+                            print("Erro ocorrido ao tentar realizar login, aguardando 5s antes de atualizar...")
+                            time.sleep(5)
+                            brokenLogin = True
                             break
                         except:
-                            continue
+                            try:
+                                driver.switch_to_default_content()
+                            except:
+                                time.sleep(0.1)
             except:
                 time.sleep(0.1)
 
-        if not brokenPage:
+        if not brokenLogin:
             avaliableSize = None
             for x in range(0, len(sizeXPaths)):
                 try:
@@ -308,8 +334,9 @@ def run():
                 print("Tempo decorrido: "+str(finalTime - initialTime)+"s")
                 return True
     
-    elif brokenPage:
+    else:
         print("Tempo máximo de espera atingido, recarregando a página...")
+        time.sleep(2)
 
 if platform == 'linux':
     binary = FirefoxBinary('/usr/lib/firefox/firefox')
