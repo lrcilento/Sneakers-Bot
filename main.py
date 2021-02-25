@@ -21,14 +21,11 @@ def get_sms():
 
 def run():
     initialTime = time.time()
-    avaliable = False
-    brokenPage = False
-    brokenLogin = False
-    loaded = False
+    avaliable, brokenPage, brokenLogin, loaded = False, False, False, False
     driver.get(targetURL)
     oldSMS = get_sms()
 
-    while(True):
+    while 1:
         if driver.execute_script("return document.readyState") == "complete":
             loaded = True
             break
@@ -78,7 +75,7 @@ def run():
                     brokenPage = True
 
     if avaliable:
-        while(True):
+        while 1:
             try:
                 driver.find_element_by_id(loginElementID).click()
                 break
@@ -87,7 +84,7 @@ def run():
 
         driver.switch_to_frame(loginFrameID)
 
-        while(True):
+        while 1:
             try:
                 driver.find_element_by_name('emailAddress').send_keys(email)
                 driver.find_element_by_name('password').send_keys(password)
@@ -96,7 +93,7 @@ def run():
             except:
                 continue
 
-        while(True):
+        while 1:
             try:
                 try:
                     driver.find_element_by_id(buyButtonID)
@@ -139,7 +136,7 @@ def run():
                 return True
 
             else:
-                while(True):
+                while 1:
                     try:
                         driver.find_element_by_xpath(avaliableSize).click()
                         driver.find_element_by_id(buyButtonID).click()
@@ -163,7 +160,7 @@ def run():
                         except:
                             continue
                 
-                while(True):
+                while 1:
                     try:
                         driver.find_element_by_xpath(checkoutButtonXPath).click()
                         break
@@ -181,7 +178,7 @@ def run():
                                 for x in range(0, len(smsCode)):
                                     time.sleep(delay)
                                     driver.find_element_by_xpath("//input[@name='Code{0}']".format(x+1)).send_keys(smsCode[x])
-                                while(True):
+                                while 1:
                                     try:
                                         driver.find_element_by_xpath(confirmSMSButtonXPath).click()
                                         break
@@ -192,7 +189,7 @@ def run():
                         except:
                             continue
 
-                while(True):
+                while 1:
                     try:
                         driver.find_element_by_id(buyButtonID)
                         try:
@@ -202,7 +199,7 @@ def run():
                     except:
                         break
 
-                while(True):
+                while 1:
                     try:
                         driver.find_element_by_tag_name('body').send_keys(Keys.END)
                         driver.find_element_by_xpath(paymentButtonXPath).click()
@@ -219,7 +216,7 @@ def run():
                             except:
                                 continue
 
-                while(True):
+                while 1:
                     try:
                         driver.find_element_by_xpath(viableXPath).click()
                     except:
@@ -228,21 +225,21 @@ def run():
                         except:
                             break
                 
-                while(True):
+                while 1:
                     try:
                         driver.find_element_by_id(cardsDivID).click()
                         break
                     except:
                         continue
 
-                while(True):
+                while 1:
                     try:
                         driver.find_element_by_class_name(cardClassName).click()
                         break
                     except:
                         continue
 
-                while(True):
+                while 1:
                     try:
                         driver.find_element_by_xpath(termsCheckboxXPath).click()
                         break
@@ -255,7 +252,7 @@ def run():
                         continue
 
                 if test == False:
-                    while(True):
+                    while 1:
                         try:
                             driver.find_element_by_id(finalButtonID).click()
                             print("Compra realizada com sucesso!")
@@ -284,8 +281,6 @@ caps["pageLoadStrategy"] = "eager"
 opts = FirefoxOptions()
 if headless:
     opts.set_headless()
-    opts.add_argument("--width=1920");
-    opts.add_argument("--height=1080");
     os.environ['MOZ_HEADLESS_WIDTH'] = '1920'
     os.environ['MOZ_HEADLESS_HEIGHT'] = '1080'
 
@@ -300,7 +295,7 @@ else:
 lastMinute = None
 setup = False
 
-while(True):
+while 1:
     if setup == False:
         if test:
             print("Modo teste ativado, ignorando horário...")
