@@ -23,48 +23,61 @@ def run():
     oldSMS = get_sms()
     initialTime = time.time()
     avaliable = True
+    brokenPage = False
+    loaded = False
     print("Carregando página...")
     driver.get(targetURL)
 
     while(True):
         if driver.execute_script("return document.readyState") == "complete":
             print("Página carregada.")
+            loaded = True
             break
-
-    print("Verificando se já está disponível...")
-    while(True):
-        try:
-            driver.find_element_by_xpath("//button[@id='{0}']".format(loginElementID))
-            print("Está!")
-            break
-        except:
+        else:
             try:
                 driver.find_element_by_id(remindMeButtonID)
                 print("Não está disponível ainda...")
                 avaliable = False
-                time.sleep(2)
                 break
             except:
-                driver.find_element_by_tag_name('body').send_keys(Keys.HOME)
-                time.sleep(0.1)
-                driver.find_element_by_tag_name('body').send_keys(Keys.PAGE_DOWN)
-                time.sleep(0.1)
+                continue
+
+    if loaded:
+        print("Verificando se já está disponível...")
+        while(True):
+            try:
+                driver.find_element_by_xpath("//button[@id='{0}']".format(loginElementID))
+                print("Está!")
+                break
+            except:
                 try:
-                    driver.find_element_by_xpath("//button[@id='{0}']".format(loginElementID))
-                    print("Está!")
+                    driver.find_element_by_id(remindMeButtonID)
+                    print("Não está disponível ainda...")
+                    avaliable = False
+                    time.sleep(2)
                     break
                 except:
+                    driver.find_element_by_tag_name('body').send_keys(Keys.HOME)
+                    time.sleep(0.1)
+                    driver.find_element_by_tag_name('body').send_keys(Keys.PAGE_DOWN)
+                    time.sleep(0.1)
                     try:
-                        driver.find_element_by_id(remindMeButtonID)
-                        print("Não está disponível ainda...")
-                        avaliable = False
-                        time.sleep(2)
+                        driver.find_element_by_xpath("//button[@id='{0}']".format(loginElementID))
+                        print("Está!")
                         break
                     except:
-                        time.sleep(0.1)
-                        driver.find_element_by_tag_name('body').send_keys(Keys.PAGE_DOWN)
+                        try:
+                            driver.find_element_by_id(remindMeButtonID)
+                            print("Não está disponível ainda...")
+                            avaliable = False
+                            time.sleep(2)
+                            break
+                        except:
+                            print("Parece que a página não carregou completamente...")
+                            brokenPage = True
+                            break
 
-    if avaliable:
+    if avaliable and not brokenPage:
         print("Procurando botão de login...")
         while(True):
             try:
@@ -108,188 +121,194 @@ def run():
                     except:
                         time.sleep(0.1)
                         driver.find_element_by_tag_name('body').send_keys(Keys.PAGE_DOWN)
-            except:
-                time.sleep(0.1)
-
-        avaliableSize = None
-        for x in range(0, len(sizeXPaths)):
-            try:
-                if driver.find_element_by_xpath(sizeXPaths[x]).find_element_by_xpath('..').get_attribute('class') != "tamanho-desabilitado":
-                    print("Número "+sizeXPaths[x][-4:-2]+" disponível, selecionando-o...")
-                    avaliableSize = sizeXPaths[x]
-                    break
-                else:
-                    print("Número "+sizeXPaths[x][-4:-2]+" indisponível...")
-            except:
-                print("Número "+sizeXPaths[x][-4:-2]+" inexistente...")
-                time.sleep(0.1)
-
-        if avaliableSize == None:
-            print("Nenhum tamanho disponível, verifique a lista e tente novamente.")
-            return True
-
-        else:
-            print("Adicionando número "+avaliableSize[-4:-2]+" ao carrinho...")
-            while(True):
-                try:
-                    driver.find_element_by_xpath(avaliableSize).click()
-                    driver.find_element_by_id(buyButtonID).click()
-                    print("Adicionado!")
-                    break
-                except:
-                    time.sleep(0.1)
-                    try:
-                        driver.find_element_by_tag_name('body').send_keys(Keys.HOME)
-                        time.sleep(0.1)
-                        driver.find_element_by_tag_name('body').send_keys(Keys.PAGE_DOWN)
                         try:
-                            driver.find_element_by_xpath(avaliableSize).click()
-                            driver.find_element_by_id(buyButtonID).click()
-                            print("Adicionado!")
+                            driver.find_element_by_id(loginFrameErrorID)
+                            brokenPage = True
                             break
                         except:
-                            try:
-                                driver.find_element_by_tag_name('body').send_keys(Keys.PAGE_DOWN)
-                                time.sleep(0.1)
-                            except:
-                                time.sleep(0.1)
+                            continue
+            except:
+                time.sleep(0.1)
+
+        if not brokenPage:
+            avaliableSize = None
+            for x in range(0, len(sizeXPaths)):
+                try:
+                    if driver.find_element_by_xpath(sizeXPaths[x]).find_element_by_xpath('..').get_attribute('class') != "tamanho-desabilitado":
+                        print("Número "+sizeXPaths[x][-4:-2]+" disponível, selecionando-o...")
+                        avaliableSize = sizeXPaths[x]
+                        break
+                    else:
+                        print("Número "+sizeXPaths[x][-4:-2]+" indisponível...")
+                except:
+                    print("Número "+sizeXPaths[x][-4:-2]+" inexistente...")
+                    time.sleep(0.1)
+
+            if avaliableSize == None:
+                print("Nenhum tamanho disponível, verifique a lista e tente novamente.")
+                return True
+
+            else:
+                print("Adicionando número "+avaliableSize[-4:-2]+" ao carrinho...")
+                while(True):
+                    try:
+                        driver.find_element_by_xpath(avaliableSize).click()
+                        driver.find_element_by_id(buyButtonID).click()
+                        print("Adicionado!")
+                        break
                     except:
                         time.sleep(0.1)
-            
-            print("Procurando botão de check-out...")
-            while(True):
-                try:
-                    driver.find_element_by_xpath(checkoutButtonXPath).click()
-                    print("Botão de check-out disponível!")
-                    break
-                except:
-                    try:
-                        driver.find_element_by_xpath("//input[@name='CelularCliente']")
                         try:
-                            for number in phoneNumber:
-                                time.sleep(0.1)
-                                driver.find_element_by_xpath("//input[@name='CelularCliente']").send_keys(number)
-                            print("Precisa do SMS! Inserindo o número de telefone...")
-                            driver.find_element_by_xpath("//input[@name='CelularCliente']").send_keys(Keys.ENTER)
-                            smsCode = oldSMS
-                            while smsCode == oldSMS:
-                                smsCode = get_sms()
-                            time.sleep(1)
-                            for x in range(0, len(smsCode)):
-                                driver.find_element_by_xpath("//input[@name='Code{0}']".format(x+1)).send_keys(smsCode[x])
-                                time.sleep(0.1)
-                            while(True):
+                            driver.find_element_by_tag_name('body').send_keys(Keys.HOME)
+                            time.sleep(0.1)
+                            driver.find_element_by_tag_name('body').send_keys(Keys.PAGE_DOWN)
+                            try:
+                                driver.find_element_by_xpath(avaliableSize).click()
+                                driver.find_element_by_id(buyButtonID).click()
+                                print("Adicionado!")
+                                break
+                            except:
                                 try:
-                                    driver.find_element_by_xpath(confirmSMSButtonXPath).click()
-                                    print("Finalizado")
-                                    break
+                                    driver.find_element_by_tag_name('body').send_keys(Keys.PAGE_DOWN)
+                                    time.sleep(0.1)
                                 except:
                                     time.sleep(0.1)
                         except:
                             time.sleep(0.1)
+                
+                print("Procurando botão de check-out...")
+                while(True):
+                    try:
+                        driver.find_element_by_xpath(checkoutButtonXPath).click()
+                        print("Botão de check-out disponível!")
+                        break
+                    except:
+                        try:
+                            driver.find_element_by_xpath("//input[@name='CelularCliente']")
+                            try:
+                                for number in phoneNumber:
+                                    time.sleep(0.1)
+                                    driver.find_element_by_xpath("//input[@name='CelularCliente']").send_keys(number)
+                                print("Precisa do SMS! Inserindo o número de telefone...")
+                                driver.find_element_by_xpath("//input[@name='CelularCliente']").send_keys(Keys.ENTER)
+                                smsCode = oldSMS
+                                while smsCode == oldSMS:
+                                    smsCode = get_sms()
+                                time.sleep(1)
+                                for x in range(0, len(smsCode)):
+                                    driver.find_element_by_xpath("//input[@name='Code{0}']".format(x+1)).send_keys(smsCode[x])
+                                    time.sleep(0.1)
+                                while(True):
+                                    try:
+                                        driver.find_element_by_xpath(confirmSMSButtonXPath).click()
+                                        print("Finalizado")
+                                        break
+                                    except:
+                                        time.sleep(0.1)
+                            except:
+                                time.sleep(0.1)
+                        except:
+                            time.sleep(0.1)
+                        time.sleep(0.1)
+
+                print("Verificando se já passou de página...")
+                while(True):
+                    try:
+                        driver.find_element_by_id(buyButtonID)
+                        try:
+                            driver.find_element_by_id(buyButtonID).click()
+                        except:
+                            time.sleep(0.1)
+                    except:
+                        print("Já!")
+                        break
+
+                print("Procurando botão de seguir para o pagamento...")
+                while(True):
+                    try:
+                        driver.find_element_by_tag_name('body').send_keys(Keys.END)
+                        driver.find_element_by_xpath(paymentButtonXPath).click()
                     except:
                         time.sleep(0.1)
-                    time.sleep(0.1)
-
-            print("Verificando se já passou de página...")
-            while(True):
-                try:
-                    driver.find_element_by_id(buyButtonID)
                     try:
-                        driver.find_element_by_id(buyButtonID).click()
-                    except:
-                        time.sleep(0.1)
-                except:
-                    print("Já!")
-                    break
-
-            print("Procurando botão de seguir para o pagamento...")
-            while(True):
-                try:
-                    driver.find_element_by_tag_name('body').send_keys(Keys.END)
-                    driver.find_element_by_xpath(paymentButtonXPath).click()
-                except:
-                    time.sleep(0.1)
-                try:
-                    driver.find_element_by_xpath(confirmAddressXPath)
-                    viableXPath = confirmAddressXPath
-                    print("Abriu!")
-                    break
-                except:
-                    time.sleep(0.1)
-                try:
-                    driver.find_element_by_xpath(alternativeConfirmAddressXPath)
-                    print("Abriu!")
-                    viableXPath = alternativeConfirmAddressXPath
-                    break
-                except:
-                    time.sleep(0.1)
-
-
-            print("Procurando botão de confirmação de endereço...")
-            # AQUI
-            while(True):
-                try:
-                    driver.find_element_by_xpath(viableXPath).click()
-                except:
-                    time.sleep(0.1)
-                try:
-                    driver.find_element_by_xpath(viableXPath)
-                    time.sleep(0.1)
-                except:
-                    print("Achei!")
-                    break
-            
-            print("Procurando painel de cartões salvos...")
-            while(True):
-                try:
-                    driver.find_element_by_id(cardsDivID).click()
-                    print("Achei!")
-                    break
-                except:
-                    time.sleep(0.1)
-
-            print("Tentando selecionar cartão...")
-            while(True):
-                try:
-                    driver.find_element_by_class_name(cardClassName).click()
-                    print("Consegui!")
-                    break
-                except:
-                    time.sleep(0.1)
-
-            print("Procurando onde aceitar os termos...")
-            while(True):
-                try:
-                    driver.find_element_by_xpath(termsCheckboxXPath).click()
-                    print("Achei o checkbox!")
-                    break
-                except:
-                    try:
-                        driver.find_element_by_xpath(termsDivXPath).click()
-                        print("Achei o div inteiro!")
+                        driver.find_element_by_xpath(confirmAddressXPath)
+                        viableXPath = confirmAddressXPath
+                        print("Abriu!")
                         break
                     except:
                         time.sleep(0.1)
-                    time.sleep(0.1)
+                    try:
+                        driver.find_element_by_xpath(alternativeConfirmAddressXPath)
+                        print("Abriu!")
+                        viableXPath = alternativeConfirmAddressXPath
+                        break
+                    except:
+                        time.sleep(0.1)
 
-            if test == False:
-                print("Tentando finalizar compra...")
+
+                print("Procurando botão de confirmação de endereço...")
                 while(True):
                     try:
-                        driver.find_element_by_id(finalButtonID).click()
+                        driver.find_element_by_xpath(viableXPath).click()
+                    except:
+                        time.sleep(0.1)
+                    try:
+                        driver.find_element_by_xpath(viableXPath)
+                        time.sleep(0.1)
+                    except:
+                        print("Achei!")
+                        break
+                
+                print("Procurando painel de cartões salvos...")
+                while(True):
+                    try:
+                        driver.find_element_by_id(cardsDivID).click()
+                        print("Achei!")
+                        break
+                    except:
+                        time.sleep(0.1)
+
+                print("Tentando selecionar cartão...")
+                while(True):
+                    try:
+                        driver.find_element_by_class_name(cardClassName).click()
                         print("Consegui!")
                         break
                     except:
                         time.sleep(0.1)
-            else:
-                print("Modo teste ativado, encerrando o fluxo sem finalizar compra...")
 
-            finalTime = time.time()
-            print("Tempo decorrido: "+str(finalTime - initialTime)+"s")
-            return True
+                print("Procurando onde aceitar os termos...")
+                while(True):
+                    try:
+                        driver.find_element_by_xpath(termsCheckboxXPath).click()
+                        print("Achei o checkbox!")
+                        break
+                    except:
+                        try:
+                            driver.find_element_by_xpath(termsDivXPath).click()
+                            print("Achei o div inteiro!")
+                            break
+                        except:
+                            time.sleep(0.1)
+                        time.sleep(0.1)
+
+                if test == False:
+                    print("Tentando finalizar compra...")
+                    while(True):
+                        try:
+                            driver.find_element_by_id(finalButtonID).click()
+                            print("Consegui!")
+                            break
+                        except:
+                            time.sleep(0.1)
+                else:
+                    print("Modo teste ativado, encerrando o fluxo sem finalizar compra...")
+
+                finalTime = time.time()
+                print("Tempo decorrido: "+str(finalTime - initialTime)+"s")
+                return True
     
-    else:
+    elif brokenPage:
         print("Tempo máximo de espera atingido, recarregando a página...")
 
 if platform == 'linux':

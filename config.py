@@ -4,6 +4,7 @@ buyButtonID = "btn-comprar"
 checkoutButtonXPath = '/html/body/main/div[4]/div/div[4]/a'
 loginElementID = "anchor-acessar-unite-oauth2"
 loginFrameID = "nike-unite-oauth2-iframe"
+loginFrameErrorID = "nike-unite-error-view"
 paymentButtonXPath = "//*[@id='seguir-pagamento']"
 confirmAddressXPath = "/html/body/div[15]/div/div/div[3]/button[1]"
 alternativeConfirmAddressXPath = "/html/body/div[14]/div/div/div[3]/button[1]"
