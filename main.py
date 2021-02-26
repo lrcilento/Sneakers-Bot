@@ -169,14 +169,14 @@ def run():
                             driver.find_element_by_xpath("//input[@name='CelularCliente']")
                             try:
                                 for number in phoneNumber:
-                                    time.sleep(delay)
+                                    time.sleep(0.1)
                                     driver.find_element_by_xpath("//input[@name='CelularCliente']").send_keys(number)
                                 driver.find_element_by_xpath("//input[@name='CelularCliente']").send_keys(Keys.ENTER)
                                 smsCode = oldSMS
                                 while smsCode == oldSMS:
                                     smsCode = get_sms()
                                 for x in range(0, len(smsCode)):
-                                    time.sleep(delay)
+                                    time.sleep(0.1)
                                     driver.find_element_by_xpath("//input[@name='Code{0}']".format(x+1)).send_keys(smsCode[x])
                                 while 1:
                                     try:
