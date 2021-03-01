@@ -28,5 +28,14 @@ if enableHeadless.lower() == 'y':
     envFile.write("headless = True\n")
 else:
     envFile.write("headless = False\n")
+threadNumber = input("Insira a quantidade de Threads (1 ~ 20): ")
+envFile.write("threadNumber = "+threadNumber+"\n")
+if threadNumber > 1:
+    if input("Deseja os Thread adicionais sejam passados por Proxy? (y/n) ").lower() == 'y':
+        envFile.write("proxy = True\n")
+    else:
+        envFile.write("proxy = False\n")
+else:
+    envFile.write("proxy = False\n")
 print("Tudo configurado! Agora é só executar!")
 envFile.close()

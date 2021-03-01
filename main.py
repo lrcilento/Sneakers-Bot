@@ -1,9 +1,12 @@
 import time
 import datetime
 import os
+import logging
 import requests
+import threading
 from sys import platform
 from selenium import webdriver
+from http_request_randomizer.requests.proxy.requestProxy import RequestProxy
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 from selenium.webdriver import FirefoxOptions
@@ -19,7 +22,8 @@ def get_sms():
     except:
         return ""
 
-def run():
+def run(threadName, driver):
+    print("{} Iniciado!".format(threadName))
     initialTime = time.time()
     avaliable, brokenPage, brokenLogin, loaded = False, False, False, False
     driver.get(targetURL)
@@ -110,7 +114,7 @@ def run():
                         try:
                             driver.switch_to_frame(loginFrameID)
                             driver.find_element_by_xpath(loginFrameErrorXPath)
-                            print("Erro ocorrido ao tentar realizar login...")
+                            print("{} Erro ocorrido ao tentar realizar login...".format(threadName))
                             brokenLogin = True
                             break
                         except:
@@ -132,7 +136,7 @@ def run():
                     continue
 
             if avaliableSize == None:
-                print("Nenhum tamanho disponível, verifique a lista e tente novamente.")
+                print("{} Nenhum tamanho disponível, verifique a lista e tente novamente.".format(threadName))
                 return True
 
             else:
@@ -255,20 +259,29 @@ def run():
                     while 1:
                         try:
                             driver.find_element_by_id(finalButtonID).click()
-                            print("Compra realizada com sucesso!")
+                            print("{} Compra realizada com sucesso!".format(threadName))
                             break
                         except:
                             continue
                 else:
-                    print("Encerrando o fluxo de teste...")
+                    print("{} Encerrando o fluxo de teste...".format(threadName))
 
                 finalTime = time.time()
-                print("Tempo decorrido: %4.1fs" % (finalTime - initialTime))
+                print("{} Tempo decorrido: %4.1fs".format(threadName) % (finalTime - initialTime))
                 return True
     
     else:
-        print("Algo deu errado, recarregando a página...")
+        print("{} Algo deu errado, recarregando a página...".format(threadName))
         time.sleep(1)
+
+def retrieveProxies():
+    print("Colentando lista de proxies...")
+    rawProxies = RequestProxy(log_level=logging.ERROR).get_proxy_list()
+    proxies = []
+    for proxy in rawProxies:
+        if proxy.country == "Brazil":
+            proxies.append(proxy.get_address())
+    return proxies
 
 if platform == 'linux':
     binary = FirefoxBinary('/usr/lib/firefox/firefox')
@@ -276,9 +289,11 @@ if platform == 'linux':
 else:
     binary = FirefoxBinary("C:\\Program Files\\Mozilla Firefox\\firefox.exe")
     path = "C:\\Program Files\\Mozilla Firefox\\geckodriver.exe"
+
 caps = DesiredCapabilities().FIREFOX
 caps["pageLoadStrategy"] = "eager"
 opts = FirefoxOptions()
+
 if headless:
     opts.set_headless()
     os.environ['MOZ_HEADLESS_WIDTH'] = '1920'
@@ -295,27 +310,48 @@ else:
 lastMinute = None
 setup = False
 
+def prepareDriver(threadName, first = False):
+    if not first and proxy:
+        if len(proxies) > 0:
+            caps['proxy'] = {
+                "httpProxy":proxies[0],
+                "ftpProxy":proxies[0],
+                "sslProxy":proxies[0],
+                "proxyType":"MANUAL"
+            }
+            proxies.pop(0)
+    driver = webdriver.Firefox(firefox_options=opts, capabilities=caps, firefox_binary=binary, executable_path=path)
+    driver.maximize_window()
+    while 1:
+        if run(threadName, driver):
+            break
+
 while 1:
+    if threadNumber > 1 and proxy:
+        proxies = retrieveProxies()
     if setup == False:
         if test:
             print("Modo teste ativado, ignorando horário...")
-            driver = webdriver.Firefox(firefox_options=opts, capabilities=caps, firefox_binary=binary, executable_path=path)
-            driver.maximize_window()
             setup = True
         else:
             nowHour = datetime.datetime.now().hour
             nowMinute = datetime.datetime.now().minute
             remainingMinutes = ((int(startHour)*60)+int(startMinute))-((int(nowHour)*60)+int(nowMinute))
-            if remainingMinutes < 1 and dropped == False:
+            if remainingMinutes < 2 and dropped == False:
                 dropped = True
-                driver = webdriver.Firefox(firefox_options=opts, capabilities=caps, firefox_binary=binary, executable_path=path)
-                driver.maximize_window()
                 setup = True
             else:
                 time.sleep(1)
                 if lastMinute != remainingMinutes:
                     print(str(remainingMinutes)+" minutos restantes...")
                 lastMinute = remainingMinutes
+
     if dropped:
-        if run():
-            break
+        for x in range(0, threadNumber):
+            if x == 0:
+                main = threading.Thread(target=prepareDriver, args=("[Main]", True))
+                main.start()
+            else:
+                slave = threading.Thread(target=prepareDriver, args=("[Slave-{}]".format(x), False))
+                slave.start()
+        break
