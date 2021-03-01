@@ -287,41 +287,22 @@ def run(threadName, driver):
 
 def retrieveProxies():
     print("Colentando lista de proxies...")
-    rawProxies = RequestProxy(log_level=logging.ERROR).get_proxy_list()
     proxies = []
-    for proxy in rawProxies:
-        if proxy.country == "Brazil":
-            proxies.append(proxy.get_address())
+    if len(proxies) + 1 < threadNumber:
+        rawProxies = RequestProxy(log_level=logging.ERROR).get_proxy_list()
+        for proxy in rawProxies:
+            if proxy.country == "Brazil":
+                proxies.append(proxy.get_address())
     return proxies
 
-if platform == 'linux':
-    binary = FirefoxBinary('/usr/lib/firefox/firefox')
-    path = '/usr/local/bin/geckodriver'
-else:
-    binary = FirefoxBinary("C:\\Program Files\\Mozilla Firefox\\firefox.exe")
-    path = "C:\\Program Files\\Mozilla Firefox\\geckodriver.exe"
-
-caps = DesiredCapabilities().FIREFOX
-caps["pageLoadStrategy"] = "eager"
-opts = FirefoxOptions()
-
-if headless:
-    opts.set_headless()
-    os.environ['MOZ_HEADLESS_WIDTH'] = '1920'
-    os.environ['MOZ_HEADLESS_HEIGHT'] = '1080'
-
-if test:
-    dropped = True
-else:
-    dropped = False
-    print("Horário do drop: "+startTime)
-    startHour = startTime[:2]
-    startMinute = startTime[-2:]
-lastMinute = None
-setup = False
-threads = []
-
 def prepareDriver(threadName, first = False):
+    caps = DesiredCapabilities().FIREFOX
+    caps["pageLoadStrategy"] = "eager"
+    opts = FirefoxOptions()
+    if headless:
+        opts.set_headless()
+        os.environ['MOZ_HEADLESS_WIDTH'] = '1920'
+        os.environ['MOZ_HEADLESS_HEIGHT'] = '1080'
     if not first and proxy:
         if len(proxies) > 0:
             caps['proxy'] = {
@@ -336,6 +317,24 @@ def prepareDriver(threadName, first = False):
     while 1:
         if run(threadName, driver):
             break
+
+if platform == 'linux':
+    binary = FirefoxBinary('/usr/lib/firefox/firefox')
+    path = '/usr/local/bin/geckodriver'
+else:
+    binary = FirefoxBinary("C:\\Program Files\\Mozilla Firefox\\firefox.exe")
+    path = "C:\\Program Files\\Mozilla Firefox\\geckodriver.exe"
+
+if test:
+    dropped = True
+else:
+    dropped = False
+    print("Horário do drop: "+startTime)
+    startHour = startTime[:2]
+    startMinute = startTime[-2:]
+lastMinute = None
+setup = False
+threads = []
 
 while 1:
     if threadNumber > 1 and proxy:
