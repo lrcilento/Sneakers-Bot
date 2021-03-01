@@ -22,12 +22,15 @@ def get_sms():
     except:
         return ""
 
+login = False
 def run(threadName, driver):
     print("{} Iniciado!".format(threadName))
     initialTime = time.time()
     avaliable, brokenPage, brokenLogin, loaded = False, False, False, False
     driver.get(targetURL)
     oldSMS = get_sms()
+    if len(threads) > 1:
+        global login
 
     while 1:
         if driver.execute_script("return document.readyState") == "complete":
@@ -88,14 +91,19 @@ def run(threadName, driver):
 
         driver.switch_to_frame(loginFrameID)
 
-        while 1:
-            try:
-                driver.find_element_by_name('emailAddress').send_keys(email)
-                driver.find_element_by_name('password').send_keys(password)
-                driver.find_element_by_name('password').send_keys(Keys.ENTER)
-                break
-            except:
-                continue
+        if not login:
+            while 1:
+                try:
+                    driver.find_element_by_name('emailAddress').send_keys(email)
+                    driver.find_element_by_name('password').send_keys(password)
+                    driver.find_element_by_name('password').send_keys(Keys.ENTER)
+                    break
+                except:
+                    continue
+        
+        else:
+            print("{} Encerrado, outro Thread já conseguiu logar!".format(threadName))
+            return True
 
         while 1:
             try:
@@ -126,6 +134,9 @@ def run(threadName, driver):
                 continue
 
         if not brokenLogin:
+            if len(threads) > 1:
+                print("{} Login realizado com sucesso!".format(threadName))
+                login = True
             avaliableSize = None
             for x in range(0, len(sizeXPaths)):
                 try:
@@ -308,6 +319,7 @@ else:
     startMinute = startTime[-2:]
 lastMinute = None
 setup = False
+threads = []
 
 def prepareDriver(threadName, first = False):
     if not first and proxy:
@@ -352,7 +364,9 @@ while 1:
             if x == 0:
                 main = threading.Thread(target=prepareDriver, args=("[Main]", True))
                 main.start()
+                threads.append(main)
             else:
                 slave = threading.Thread(target=prepareDriver, args=("[Slave-{}]".format(x), False))
                 slave.start()
+                threads.append(slave)
         break
