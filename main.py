@@ -303,7 +303,6 @@ if test:
     dropped = True
 else:
     dropped = False
-    print("Credenciais: "+email+" ("+phoneNumber+")")
     print("Horário do drop: "+startTime)
     startHour = startTime[:2]
     startMinute = startTime[-2:]
@@ -338,8 +337,10 @@ while 1:
             nowMinute = datetime.datetime.now().minute
             remainingMinutes = ((int(startHour)*60)+int(startMinute))-((int(nowHour)*60)+int(nowMinute))
             if remainingMinutes < 2 and dropped == False:
-                dropped = True
-                setup = True
+                nowSeconds = datetime.datetime.now().second
+                if nowSeconds > 55:
+                    dropped = True
+                    setup = True
             else:
                 time.sleep(1)
                 if lastMinute != remainingMinutes:
