@@ -285,7 +285,7 @@ def run(threadName, driver):
         print("{} Algo deu errado, recarregando a página...".format(threadName))
         time.sleep(1)
 
-def prepareDriver(threadName, first = False, proxies = []):
+def prepareDriver(threadName, first = False):
     if platform == 'linux':
         binary = FirefoxBinary('/usr/lib/firefox/firefox')
         path = '/usr/local/bin/geckodriver'
@@ -308,6 +308,7 @@ def prepareDriver(threadName, first = False, proxies = []):
                 "no_proxy": 'localhost,127.0.0.1,dev_server:8080'
                 }
             }
+            print("{} Iniciado na rota {}".format(threadName, proxies[0]))
             proxies.pop(0)
         else:
             print("{} Sem proxies disponíveis.".format(threadName))
