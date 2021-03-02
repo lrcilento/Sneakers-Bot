@@ -30,15 +30,12 @@ else:
     envFile.write("headless = False\n")
 threadNumber = int(input("Insira a quantidade de Threads (1 ~ 20): "))
 envFile.write("threadNumber = "+str(threadNumber)+"\n")
-if threadNumber > 1:
-    if input("Deseja que os Thread adicionais sejam passados por Proxy? (y/n) ").lower() == 'y':
-        envFile.write("proxy = True\n")
-        envFile.write("proxyUsername = '"+input("Insira nome de usuário do servidor de Proxy: ")+"'\n")
-        envFile.write("proxyPassword = '"+input("Insira a senha do servidor de Proxy: ")+"'\n")
-        proxies = input("Insira endereços de proxy, no formato 'IP:PORT', separados por espaço: ").split(" ")
-        envFile.write("proxies = "+str(proxies)+"\n")
-    else:
-        envFile.write("proxy = False\n")
+if threadNumber > 1 and input("Deseja que os Thread adicionais sejam passados por Proxy? (y/n) ").lower() == 'y':
+    envFile.write("proxy = True\n")
+    envFile.write("proxyUsername = '"+input("Insira nome de usuário do servidor de Proxy: ")+"'\n")
+    envFile.write("proxyPassword = '"+input("Insira a senha do servidor de Proxy: ")+"'\n")
+    proxies = input("Insira endereços de proxy, no formato 'IP:PORT', separados por espaço: ").split(" ")
+    envFile.write("proxies = "+str(proxies)+"\n")
 else:
     envFile.write("proxy = False\n")
     envFile.write("proxyUsername = None\n")
