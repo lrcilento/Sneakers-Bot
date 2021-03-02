@@ -132,6 +132,10 @@ def run(threadName, driver):
                                 continue
             except:
                 continue
+        
+        if login:
+            print("{} Encerrado, outro Thread já conseguiu logar!".format(threadName))
+            return True
 
         if not brokenLogin:
             if threadNumber > 1:
