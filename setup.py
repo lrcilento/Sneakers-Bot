@@ -38,8 +38,8 @@ if threadNumber > 1 and input("Deseja que os Thread adicionais sejam passados po
     envFile.write("proxies = "+str(proxies)+"\n")
 else:
     envFile.write("proxy = False\n")
-    envFile.write("proxyUsername = None\n")
-    envFile.write("proxyPassword = None\n")
+    envFile.write("proxyUsername = ''\n")
+    envFile.write("proxyPassword = ''\n")
     envFile.write("proxies = None\n")
 envFile.write("proxyString = 'https://'+proxyUsername+':'+proxyPassword+'@'\n")
 print("Tudo configurado! Agora é só executar!")
