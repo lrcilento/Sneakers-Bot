@@ -28,8 +28,8 @@ if enableHeadless.lower() == 'y':
     envFile.write("headless = True\n")
 else:
     envFile.write("headless = False\n")
-threadNumber = input("Insira a quantidade de Threads (1 ~ 20): ")
-envFile.write("threadNumber = "+threadNumber+"\n")
+threadNumber = int(input("Insira a quantidade de Threads (1 ~ 20): "))
+envFile.write("threadNumber = "+str(threadNumber)+"\n")
 if threadNumber > 1:
     if input("Deseja os Thread adicionais sejam passados por Proxy? (y/n) ").lower() == 'y':
         envFile.write("proxy = True\n")
