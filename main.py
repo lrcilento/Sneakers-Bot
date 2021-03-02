@@ -29,7 +29,7 @@ def run(threadName, driver):
     avaliable, brokenPage, brokenLogin, loaded = False, False, False, False
     driver.get(targetURL)
     oldSMS = get_sms()
-    if len(threads) > 1:
+    if threadNumber > 1:
         global login
 
     while 1:
@@ -134,7 +134,7 @@ def run(threadName, driver):
                 continue
 
         if not brokenLogin:
-            if len(threads) > 1:
+            if threadNumber > 1:
                 print("{} Login realizado com sucesso!".format(threadName))
                 login = True
             avaliableSize = None
@@ -295,7 +295,13 @@ def retrieveProxies():
                 proxies.append(proxy.get_address())
     return proxies
 
-def prepareDriver(threadName, first = False):
+def prepareDriver(threadName, first = False, proxies = []):
+    if platform == 'linux':
+        binary = FirefoxBinary('/usr/lib/firefox/firefox')
+        path = '/usr/local/bin/geckodriver'
+    else:
+        binary = FirefoxBinary("C:\\Program Files\\Mozilla Firefox\\firefox.exe")
+        path = "C:\\Program Files\\Mozilla Firefox\\geckodriver.exe"
     caps = DesiredCapabilities().FIREFOX
     caps["pageLoadStrategy"] = "eager"
     opts = FirefoxOptions()
@@ -318,54 +324,51 @@ def prepareDriver(threadName, first = False):
         if run(threadName, driver):
             break
 
-if platform == 'linux':
-    binary = FirefoxBinary('/usr/lib/firefox/firefox')
-    path = '/usr/local/bin/geckodriver'
-else:
-    binary = FirefoxBinary("C:\\Program Files\\Mozilla Firefox\\firefox.exe")
-    path = "C:\\Program Files\\Mozilla Firefox\\geckodriver.exe"
+def main():
+    if test:
+        dropped = True
+    else:
+        dropped = False
+        print("Horário do drop: "+startTime)
+        startHour = startTime[:2]
+        startMinute = startTime[-2:]
+    lastMinute = None
+    setup, retrieved = False, False
+    proxies = []
 
-if test:
-    dropped = True
-else:
-    dropped = False
-    print("Horário do drop: "+startTime)
-    startHour = startTime[:2]
-    startMinute = startTime[-2:]
-lastMinute = None
-setup = False
-threads = []
-
-while 1:
-    if threadNumber > 1 and proxy:
-        proxies = retrieveProxies()
-    if setup == False:
-        if test:
-            print("Modo teste ativado, ignorando horário...")
-            setup = True
-        else:
-            nowHour = datetime.datetime.now().hour
-            nowMinute = datetime.datetime.now().minute
-            remainingMinutes = ((int(startHour)*60)+int(startMinute))-((int(nowHour)*60)+int(nowMinute))
-            if remainingMinutes < 2 and dropped == False:
-                nowSeconds = datetime.datetime.now().second
-                if nowSeconds > 55:
-                    dropped = True
-                    setup = True
+    while 1:
+        if setup == False:
+            if test:
+                if threadNumber > 1 and proxy:
+                    proxies = retrieveProxies()
+                print("Modo teste ativado, ignorando horário...")
+                setup = True
             else:
-                time.sleep(1)
-                if lastMinute != remainingMinutes:
-                    print(str(remainingMinutes)+" minutos restantes...")
-                lastMinute = remainingMinutes
+                nowHour = datetime.datetime.now().hour
+                nowMinute = datetime.datetime.now().minute
+                remainingMinutes = ((int(startHour)*60)+int(startMinute))-((int(nowHour)*60)+int(nowMinute))
+                if remainingMinutes < 2 and dropped == False:
+                    nowSeconds = datetime.datetime.now().second
+                    if nowSeconds > 55:
+                        dropped = True
+                        setup = True
+                elif remainingMinutes < 10 and threadNumber > 1 and proxy and not retrieved:
+                    proxies = retrieveProxies()
+                    retrieved = True
+                else:
+                    time.sleep(1)
+                    if lastMinute != remainingMinutes:
+                        print(str(remainingMinutes)+" minutos restantes...")
+                    lastMinute = remainingMinutes
 
-    if dropped:
-        for x in range(0, threadNumber):
-            if x == 0:
-                main = threading.Thread(target=prepareDriver, args=("[Main]", True))
-                main.start()
-                threads.append(main)
-            else:
-                slave = threading.Thread(target=prepareDriver, args=("[Slave-{}]".format(x), False))
-                slave.start()
-                threads.append(slave)
-        break
+        if dropped:
+            for x in range(0, threadNumber):
+                if x == 0:
+                    main = threading.Thread(target=prepareDriver, args=("[Main]", True))
+                    main.start()
+                else:
+                    slave = threading.Thread(target=prepareDriver, args=("[Slave-{}]".format(x), False, proxies))
+                    slave.start()
+            break
+
+main()
