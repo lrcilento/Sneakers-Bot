@@ -6,7 +6,7 @@ import requests
 import threading
 from sys import platform
 from selenium import webdriver
-from http_request_randomizer.requests.proxy.requestProxy import RequestProxy
+from seleniumwire import webdriver
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 from selenium.webdriver import FirefoxOptions
@@ -285,16 +285,6 @@ def run(threadName, driver):
         print("{} Algo deu errado, recarregando a página...".format(threadName))
         time.sleep(1)
 
-def retrieveProxies():
-    print("Colentando lista de proxies...")
-    proxies = []
-    if len(proxies) + 1 < threadNumber:
-        rawProxies = RequestProxy(log_level=logging.ERROR).get_proxy_list()
-        for proxy in rawProxies:
-            if proxy.country == "Brazil":
-                proxies.append(proxy.get_address())
-    return proxies
-
 def prepareDriver(threadName, first = False, proxies = []):
     if platform == 'linux':
         binary = FirefoxBinary('/usr/lib/firefox/firefox')
@@ -311,13 +301,17 @@ def prepareDriver(threadName, first = False, proxies = []):
         os.environ['MOZ_HEADLESS_HEIGHT'] = '1080'
     if not first and proxy:
         if len(proxies) > 0:
-            caps['proxy'] = {
-                "httpProxy":proxies[0],
-                "ftpProxy":proxies[0],
-                "sslProxy":proxies[0],
-                "proxyType":"MANUAL"
+            options = {
+                'proxy': {
+                "http": proxyString + proxies[0],
+                "https": proxyString + proxies[0],
+                "no_proxy": 'localhost,127.0.0.1,dev_server:8080'
+                }
             }
             proxies.pop(0)
+        else:
+            print("{} Sem proxies disponíveis.".format(threadName))
+            return
     driver = webdriver.Firefox(firefox_options=opts, capabilities=caps, firefox_binary=binary, executable_path=path)
     driver.maximize_window()
     while 1:
@@ -333,14 +327,12 @@ def main():
         startHour = startTime[:2]
         startMinute = startTime[-2:]
     lastMinute = None
-    setup, retrieved = False, False
+    setup = False
     proxies = []
 
     while 1:
         if setup == False:
             if test:
-                if threadNumber > 1 and proxy:
-                    proxies = retrieveProxies()
                 print("Modo teste ativado, ignorando horário...")
                 setup = True
             else:
@@ -352,9 +344,6 @@ def main():
                     if nowSeconds > 55:
                         dropped = True
                         setup = True
-                elif remainingMinutes < 10 and threadNumber > 1 and proxy and not retrieved:
-                    proxies = retrieveProxies()
-                    retrieved = True
                 else:
                     time.sleep(1)
                     if lastMinute != remainingMinutes:
@@ -367,7 +356,7 @@ def main():
                     main = threading.Thread(target=prepareDriver, args=("[Main]", True))
                     main.start()
                 else:
-                    slave = threading.Thread(target=prepareDriver, args=("[Slave-{}]".format(x), False, proxies))
+                    slave = threading.Thread(target=prepareDriver, args=("[Slave-{}]".format(x), False))
                     slave.start()
             break
 
